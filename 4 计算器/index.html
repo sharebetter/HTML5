@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>计算器</title>
+		<style>
+			body{
+				background:#F0F2EE ;
+			}
+			.wrap{
+				width: 230px;
+				height: 280px;
+				background-color: #F0F2EE;
+				margin: 50px auto;
+				border: 2px solid white;
+				position: relative;
+			}
+		    p{
+		    	text-indent: 10px;
+		    }
+		    #text{
+		    	position: absolute;		    
+		    	width: 200px;
+		    	height: 25px;
+		    	border: none;
+		    	color: #A9A9A9;
+		    	left: 10px;
+		    	text-align: right;
+		    	font-size: 18px;
+		    	background:white;
+		    }
+		    .bottom{
+		    	border: 2px solid white;
+		    	width: 200px;
+		    	height: 160px;
+		    	position: absolute;
+		    	top: 100px;
+		    	left: 12px;
+		    	padding:5px 0 0 0;
+		    	margin: 0;
+		    	text-align: center;	
+		    	cursor: pointer;	  
+		    }
+		    .bottom li{
+		    	width: 30px;
+		    	height: 30px;		    	
+		    	background-color: #DDDDDD;
+		    	display: inline-block;
+		    	border: 1px solid white;
+		    	list-style: none;
+		    	color: #A9A9A9;	
+		    	margin:3px 3px;	
+		    	line-height: 30px;  
+		    }
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<p>简单的计算器</p>
+			<input type="button" name="" id="text" value="0" />
+			<ul class="bottom">
+				<li>7</li><li>8</li><li>9</li><li>←</li><li>C</li>
+				<li>4</li><li>5</li><li>6</li><li>x</li><li>÷</li>
+				<li>1</li><li>2</li><li>3</li><li>+</li><li>-</li>
+				<li>0</li><li>00</li><li>.</li><li>%</li><li>=</li>				
+			</ul>
+		</div>
+		
+		<script>
+			var oLis = document.querySelectorAll('.bottom li');
+			var oText = document.querySelector('#text');
+			var num1=0,num2=0,flag=true,flag2=1,length=0;
+			for(var i=0;i<oLis.length;i++){
+				oLis[i].i=i;
+				oLis[i].onclick=function(){
+					length=oText.value.length;
+				 	switch (this.i){
+				 	case 3:
+				 	   oText.value=oText.value.substring(0,length-1);	 	   
+				 	   if(length==1){
+				 	   	oText.value=0;
+				 	   }
+				 	   flag=true;
+				 	   break;
+				 	case 4:
+				 	    oText.value=0;	
+				 	    flag=true;
+				 	    break;
+				  	case 8:     
+				  	     if(flag){	 
+					  	    change('x',1);
+				  	     }
+				  	     else{
+				  	     	oText.value=oText.value.substring(0,length-1);
+				  	     	change('x',1);
+				  	     }
+					  	    break;	 
+				  	case 9:
+				  	    if(flag){
+					  	  change('÷',2);
+				  	    }
+				  	    else{
+				  	     	oText.value=oText.value.substring(0,length-1);
+				  	     	change('÷',2);
+				  	     }
+				  		break;
+				  	case 13:
+				  	     if(flag){	 
+					  	    change('+',3);
+				  	     }
+				  	     else{
+				  	     	oText.value=oText.value.substring(0,length-1);
+				  	     	change('+',3);
+				  	     }
+					  	    break;
+				  	case 14:
+				  	      if(flag){	 
+					  	    change('-',4);
+				  	     }
+				  	     else{
+				  	     	oText.value=oText.value.substring(0,length-1);
+				  	     	change('-',4);
+				  	     }
+					  	    break;
+				  	case 16:
+				  	     if(oText.value==0)
+				  	       oText.value=0;
+				  	      else{
+				  	      	oText.value=oText.value+oLis[this.i].innerHTML;			  		
+				  	      }
+		                  flag=true;	
+				  	      break;
+				  	case 17: 
+				  	    if(flag){	 
+					  	    if(oText.value[length-1]=='.'){
+					  	    	break;
+					  	    }else{
+					  	    	oText.value=oText.value+'.';
+					  	    	flag=false;
+					  	    }
+					  	   
+				  	    }
+				  	    
+//				  	    console.log(oText.value)
+				  	    break;
+				  	case 18:
+				  	     if(flag){	 
+					  	    change('%',5);
+				  	     }
+				  	     else{
+				  	     	oText.value=oText.value.substring(0,length-1);
+				  	     	change('%',5);
+				  	     }
+					  	    break;
+				  	case 19:
+				  	        calculate('x',1);
+					  	    calculate('÷',2);
+					  	    calculate('+',3);
+					  	    calculate('-',4);
+					  	    calculate('%',5);
+					  	    oText.value=Number(oText.value)
+					  	    flag=true;
+				  		break;
+				  	default:
+				  	    if(oText.value==0 && length==1){
+				  	    	oText.value=''
+				  	    }
+				  	    oText.value=oText.value+oLis[this.i].innerHTML;
+				  	    flag=true;
+				  		break;
+				  }
+                    
+				 }
+				function change(a){
+					        calculate('x',1);
+					  	    calculate('÷',2);
+					  	    calculate('+',3);
+					  	    calculate('-',4);
+					  	    calculate('%',5);
+					  	    flag2=oText.value;
+					  	    oText.value=oText.value+a;
+					  	    flag=false;
+				}
+                function calculate(a,b){
+                	if(flag2<0){
+                		 var k=oText.value.substring(1,length);
+                	     var l=k.split(a);
+                	      l[0]='-'+l[0];
+                	}
+                	 else{
+                	 	var l=oText.value.split(a);
+                	 }
+                	
+                	if(l[1]!=null){
+                		switch (b){
+                			case 1:
+                			    oText.value=Number(l[0])*Number(l[1]);
+                			    g=oText.value
+                			    flag=true;
+                				break;
+                			case 2:
+                			    oText.value=Number(l[0])/Number(l[1]);
+                			    g=oText.value
+                			  
+                			    flag=true;
+                				break;
+                			case 3:
+                			    oText.value=Number(l[0])+Number(l[1]);
+                			    flag=true;
+                			    g=oText.value
+                			    
+                				break;
+                			case 4:
+                			    oText.value=Number(l[0])-Number(l[1]);
+                			    flag=true;
+                			    g=oText.value
+                			    
+                				break;
+                			case 5:
+                			    oText.value=Number(l[0])%Number(l[1]);
+                			    flag=true;
+                			    g=oText.value
+                			    
+                				break;
+                			default:
+                				break;
+                		}
+                    }
+                }
+
+			}
+		</script>
+	</body>
+</html>

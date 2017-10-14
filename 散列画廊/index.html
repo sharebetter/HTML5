@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>散列画廊 by:Bowen</title>
+    <link rel="stylesheet" href="gallery.css">
+</head>
+<body>
+    <div class="wrap" id="wrap">
+        <div class="photo photo-front " onclick="turn(this)" id="photo_{{index}}"><!--控制2D位置、旋转-->
+            <div class="photo-wrap"><!--控制3D翻转-->
+
+                <div class="side side-front">
+                    <p class="image">
+                        <img src="img/{{img}}" alt="img/{{img}}">
+                    </p>
+                    <p class="caption">{{caption}}</p>
+                </div>
+                <div class="side side-back">
+                    <p class="desc">{{desc}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="img/data.js"></script>
+    <script src="gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>3D书</title>
+		<style>
+			body{
+				background-color: #333333;
+			}
+			main{
+				transform-style: preserve-3d;
+				transform: rotateX(10deg);
+			}
+			div{
+				height: 400px;
+				width: 300px;
+				position: absolute;
+				left: 500px;
+				top: 50px;
+				text-align: right;
+				transform-origin: left;
+			}
+			.first{
+				background-color: red;
+				z-index: 5;
+				transform: rotateY(-40deg);
+				transition: 3s;
+			}
+			.second{
+				background-color: orange;
+				z-index: 4;
+				transform: rotateY(-30deg);
+			}
+			.third{
+				background-color: yellow;
+				z-index: 3;
+				transform: rotateY(-20deg);
+			}
+			.fourth{
+				background-color: green;
+				z-index: 2;
+				transform: rotateY(-10deg);
+			}
+			.fifth{
+				background-color: aqua;
+				z-index: 1;
+			}
+			main:hover .first{
+				transform: rotateY(-160deg);
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="first">第一页</div>
+			<div class="second">第二页</div>
+			<div class="third">第三页</div>
+			<div class="fourth">第四页</div>
+			<div class="fifth">第五页</div>
+		</main>
+	</body>
+</html>

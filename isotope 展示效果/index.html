@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/isotope-docs.css"/>
+	<style type="text/css">
+		.red{
+		  background: red;
+		}
+		.blue{
+		  background: #28F !important;
+		}
+		.green{
+		  background: green;
+		}
+		.isotope{
+		  height: 400PX;
+		}
+		.isotope .isotope-item{
+		  transition-property: transform,opacity;
+		  transition-duration:0.8s ;
+		}
+	
+	</style>
+	<body>
+		<div>
+		  <div class="button-group">
+		    <button class="button is-checked" data-filter="*">all</button>
+		    <button class="button" data-filter=".red">red</button>
+		    <button class="button" data-filter=".green">green</button>
+		    <button class="button" data-filter=".blue">blue</button>
+		  </div>
+		  <div id="Box" class="isotope">
+		    <div class="color-shape red">red</div>
+		    <div class="color-shape green">green</div>
+		    <div class="color-shape blue">blue</div>
+		    <div class="color-shape red">red</div>
+        <div class="color-shape green">green</div>
+        <div class="color-shape blue">blue</div>
+		  </div>
+		</div>
+	</body>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.isotope.js"></script>
+	<script>
+	  var $container=$('#Box');
+	  $container.isotope({
+	    fillter:'*',
+	    animationOption:{
+	      duration:750,
+	      easing:"linear",
+	    }
+	  })
+	  $(".button-group .button").click(function(){
+	    $(this).addClass('is-checked').siblings().removeClass('is-checked')
+	    var selector=$(this).attr('data-filter');
+	    $container.isotope({
+	      filter:selector,
+	      animationOption:{
+          duration:750,
+          easing:"linear",
+        }
+	    })
+	  })
+	</script>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#box{
+			width:1000px ;
+			height: 455px;
+			margin: 50px auto 0;
+			border: 1px solid #c36;
+		}
+		#box .title{
+			height: 50px;
+			line-height:50px ;
+			text-align: center;
+			color: #fff;
+			
+		}
+		#box .title li{
+			float: left;
+			width: 249.25px;
+			background: #c36;
+			border-right:1px solid #900 ;
+		}
+		#goods ul{
+			height: 100px;
+			border-bottom: 1px solid #900;
+		}
+		#goods ul li{
+			width: 249px;
+			float: left;
+			height: 100px;
+			border-right: 1px solid #900;
+			position: relative;
+			
+		}
+		#goods ul li.price{
+			border: none;
+		}
+		
+		#goods ul li.danjia,#goods ul li.price{
+			line-height: 100px;
+			text-align: center;
+		}
+		#goods ul li.num p{
+			width: 130px;
+			height: 30px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -65px;
+			margin-top: -15px;
+
+		}
+		#goods ul li.num p span{
+			display: inline-block;
+		}
+		#goods ul li.num p span.left,#goods ul li.num p span.right{
+			width: 30px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center;
+			background: #ddd;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		#goods ul li.num p span.txt{
+			width: 70px;
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			height: 28px;
+			text-align: center;
+			line-height: 28px;
+			font-size: 12px;
+			color: #c36;
+			position: relative;
+			top: -1px;
+		}
+		#total{
+			width: 1000px;
+			background: #c36;
+			margin: 5px auto;
+			height: 50px;
+		}
+		#total p{
+			width: 25%;
+			float: right;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			color: #fff;
+			font-size: 14px;
+			
+		}
+		#total p #totalnum,#total p #totalPrice{
+			color: #ff9;
+			font-size: 18px;
+			font-weight: bold;
+		}
+	</style>
+	<body>
+		<div id="box">
+			<ul class="title">
+				<li>商品</li>
+				<li>单价</li>
+				<li>数量</li>
+				<li style="border: none;">小计</li>
+			</ul>
+			<div id="goods">
+				<ul>
+					<li class="img" style="background: url(img/shop1.jpg) no-repeat center center ;background-size:45% ; "></li>
+					<li class="danjia">8</li>
+					<li class="num">
+						<p>
+							<span class="left">-</span><span class="txt">0</span><span class="right">+</span>
+						</p>
+					</li>
+					<li class="price">0</li>
+				</ul>
+				<ul>
+					<li class="img "style="background: url(img/shop2.jpg) no-repeat center center ;background-size:45% ;" ></li>
+					<li class="danjia">10</li>
+					<li class="num">
+						<p>
+							<span class="left">-</span><span class="txt">0</span><span class="right">+</span>
+						</p>
+					</li>
+					<li class="price">0</li>
+				</ul>
+				<ul>
+					<li class="img" style="background: url(img/shop3.jpg) no-repeat center center ;background-size:45% ;"></li>
+					<li class="danjia">12.5</li>
+					<li class="num">
+						<p>
+							<span class="left">-</span><span class="txt">0</span><span class="right">+</span>
+						</p>
+					</li>
+					<li class="price">0</li>
+				</ul>
+				<ul style="border: none;">
+					<li class="img" style="background: url(img/shop4.jpg) no-repeat center center ;background-size:45% ;"></li>
+					<li class="danjia">23</li>
+					<li class="num">
+						<p>
+							<span class="left">-</span><span class="txt">0</span><span class="right">+</span>
+						</p>
+					</li>
+					<li class="price">0</li>
+				</ul>
+			</div>
+		</div>
+		<div id="total">
+			<p>合计费用<span id="totalPrice">0</span>元</p>
+			<p>已选中的商品<span id="totalnum">0</span>个</p>
+		</div>
+	</body>
+	<script type="text/javascript">
+		var aGoodsAdd=document.querySelectorAll('#goods .num .right');
+		var aGoodsDis=document.querySelectorAll('#goods .num .left')
+		var aGoodsTxt=document.querySelectorAll('#goods .num .txt');
+		var aGoodsPrice=document.querySelectorAll('#goods .price');
+		var aGoodsDj=document.querySelectorAll('#goods .danjia');
+		var oTotalNum=document.getElementById('totalnum');
+		var oTotalPrice=document.getElementById('totalPrice');
+		var length=aGoodsAdd.length;
+		
+		//var arrZM=[0,0,0,0,0,0,0,0];
+		var arrZM=[];//存储每一个商品的数量[不固定]
+		var arrDj=[];//存储每一个商品的单价[固定]
+		
+		//给+添加点击事件；
+		for(var i=0;i<length;i++){
+			arrZM[i]=0;
+			arrDj[i]=aGoodsDj[i].innerText-0;
+			aGoodsAdd[i].i=i;
+			aGoodsDis[i].i=i;
+			aGoodsAdd[i].onclick=function(){
+               change(true,this.i);
+			}
+			aGoodsDis[i].onclick=function(){
+               change(false,this.i);
+			}
+		}
+       function change(bool,flag){
+       	      if(bool){
+       	        arrZM[flag]++;
+       	      }
+       	      else{
+       	      	 arrZM[flag]--;
+       	      	 if(arrZM[flag]<0){
+       	      	 	arrZM[flag]=0;
+       	      	 }
+       	      }
+       	        aGoodsTxt[flag].innerHTML=arrZM[flag]; 
+				//改变小计
+				aGoodsPrice[flag].innerHTML=arrDj[flag]*arrZM[flag];
+			
+				//改变总数量
+				var sum=0;
+				var sumPrice=0;
+				for(var j=0; j<length;j++){
+					sum+=arrZM[j];
+					sumPrice+=arrZM[j]*arrDj[j];
+				}
+				oTotalNum.innerHTML=sum;
+				oTotalPrice.innerHTML=sumPrice;
+       }
+	</script>
+</html>

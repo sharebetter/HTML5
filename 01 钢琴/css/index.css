@@ -1,0 +1,44 @@
+*{
+	margin: 0;
+}
+html, body{
+	height: 100%;
+}
+body{
+	background-color: #333333;
+	overflow: hidden;
+	/*弹性布局，使元素能够进行原来很难达到的布局模式*/
+	display: flex;
+	/*设置主轴方向的对齐方式为中心对齐，默认为x轴方向*/
+	justify-content: center;
+	/*设置交叉轴方向的对齐方式为中心对齐，默认为y轴方向*/
+	align-items: center;
+}
+main{
+	width: 100%;
+	height: 100%;
+	/*设置元素的最大宽高*/
+	max-height: 400px;
+	max-width: 800px;
+	/*../代表上一级目录，./代表当前目录，/代表下一级目录*/
+	background-image: url(../imgs/keys.png);
+	/*设置背景图片不重复*/
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border: 20px solid #333333;
+	border-top-width: 40px;
+	border-bottom-width: 10px;
+	border-radius: 20px;
+	box-shadow: 0 0 10px white;
+	display: flex;
+}
+div{
+	height: 100%;
+	flex-grow: 1;
+}
+/*鼠标选中状态下改变的样式*/
+div:active, .active{
+	/*alpha设置透明度*/
+	background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(150, 150, 150, 0.3));
+	/*background-image: linear-gradient(white, gray);*/
+}

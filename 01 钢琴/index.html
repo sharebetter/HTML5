@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>钢琴</title>
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+	<body>
+		<main>
+			<!--div[onmousedown=play($)]*9-->
+			<div onmousedown="play(1)"></div>
+			<div onmousedown="play(2)"></div>
+			<div onmousedown="play(3)"></div>
+			<div onmousedown="play(4)"></div>
+			<div onmousedown="play(5)"></div>
+			<div onmousedown="play(6)"></div>
+			<div onmousedown="play(7)"></div>
+			<div onmousedown="play(8)"></div>
+			<div onmousedown="play(9)"></div>
+		</main>
+		
+		<!--audio[src=notes/$.oga]*9-->
+		<audio src="notes/1.oga"></audio>
+		<audio src="notes/2.oga"></audio>
+		<audio src="notes/3.oga"></audio>
+		<audio src="notes/4.oga"></audio>
+		<audio src="notes/5.oga"></audio>
+		<audio src="notes/6.oga"></audio>
+		<audio src="notes/7.oga"></audio>
+		<audio src="notes/8.oga"></audio>
+		<audio src="notes/9.oga"></audio>
+		
+		<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+</html>

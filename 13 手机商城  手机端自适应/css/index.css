@@ -1,0 +1,285 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background: #F2F2F2;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333333;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.border {
+  border: 1px solid blue;
+}
+.borderR {
+  border: 1px solid red;
+}
+.borderG {
+  border: 1px solid green;
+}
+.clearFix:after {
+  content: '';
+  display: block;
+  clear: both;
+  overflow: hidden;
+  zoom: 1;
+}
+#hd {
+  height: 1.16883117rem;
+  background: gold;
+}
+#hd .class {
+  position: absolute;
+  left: 0.31168831rem;
+  top: 0.16883117rem;
+  width: 0.51948052rem;
+  height: 0.97402597rem;
+  background: url(../img/class.png);
+  background-size: 0.57142857rem 0.97402597rem;
+}
+#hd .shop {
+  position: absolute;
+  right: 0.25974026rem;
+  top: 0.16883117rem;
+  width: 0.81818182rem;
+  height: 0.88311688rem;
+  background: url(../img/shop.png);
+  background-size: 0.81818182rem 0.88311688rem;
+}
+#hd .search {
+  background: gold;
+  padding: 0.20779221rem 1.2987013rem 0;
+}
+#hd .search .bar {
+  height: 0.80519481rem;
+  background: #FEF1CE;
+  position: relative;
+}
+#hd .search .bar .ico {
+  position: absolute;
+  left: 0.25974026rem;
+  top: 0.19480519rem;
+  width: 0.35064935rem;
+  height: 0.36363636rem;
+  background: url(../img/search.png);
+  background-size: 0.35064935rem 0.36363636rem;
+}
+#hd .search .bar form input {
+  position: absolute;
+  left: 0.64935065rem;
+  top: 0;
+  width: 4.15584416rem;
+  height: 100%;
+  vertical-align: top;
+  border: none;
+  background: transparent;
+}
+/* 轮播图*/
+.banner {
+  height: 4.15584416rem;
+  position: relative;
+  overflow: hidden;
+}
+.banner ul {
+  width: 700%;
+  height: 100%;
+}
+.banner ul li {
+  width: 10rem;
+  height: 100%;
+  float: left;
+}
+.banner ul li a {
+  height: 100%;
+  display: block;
+}
+.banner ul li a img {
+  vertical-align: top;
+}
+.banner ol {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0.23376623rem;
+  left: 0;
+  line-height: 0;
+}
+.banner ol li {
+  width: 0.15584416rem;
+  height: 0.15584416rem;
+  display: inline-block;
+  background: white;
+  vertical-align: top;
+  border-radius: 0.07792208rem;
+  margin: 0 0.06493506rem;
+}
+.banner ol .swiper-pagination-bullet-active {
+  background: #ffc001;
+}
+.nav {
+  background: #fff;
+  padding-top: 0.25974026rem;
+  padding-bottom: 0.07792208rem;
+}
+.nav ul {
+  height: 1.55844156rem;
+  margin-bottom: 0.25974026rem;
+  display: -webkit-flex;
+  display: flex;
+}
+.nav ul li {
+  flex: 1;
+}
+.nav ul li a {
+  height: 100%;
+  display: block;
+  color: #ccc;
+  font-size: 0.31168831rem;
+  text-align: center;
+}
+.nav ul li a img {
+  width: 1.16883117rem;
+  height: 1.03896104rem;
+}
+.nav ul li a span {
+  display: block;
+}
+.sntop {
+  padding-top: 0.36363636rem;
+  position: relative;
+  background: #fff;
+  margin: 0.02597403rem 0 0.32467532rem 0;
+}
+.sntop .snIco {
+  width: 1.88311688rem;
+  height: 0.83116883rem;
+  background: url(../img/sntop.png);
+  background-size: 100% 100%;
+}
+.sntop .line {
+  width: 0.02597403rem;
+  height: 0.51948052rem;
+  background: #ddd;
+  margin-top: 0.12987013rem;
+  margin-left: 0.25974026rem;
+}
+.sntop .list {
+  width: 7.14285714rem;
+  height: 0.84415584rem;
+  margin-top: -0.12987013rem;
+  overflow: hidden;
+  position: relative;
+}
+.sntop .list ul {
+  width: 100%;
+  position: absolute;
+  top: 0 ;
+  left: 0.38961039rem;
+}
+.sntop .list li {
+  height: 100%;
+}
+.sntop .list li a {
+  height: 100%;
+  display: block;
+  font-size: 0.32467532rem;
+}
+.sntop .list li a span {
+  height: 0.36363636rem;
+  display: block;
+  position: relative;
+}
+.sntop .list li a span:first-child {
+  margin-bottom: 0.07792208rem;
+}
+.sntop .list li a span:last-child {
+  color: #ddd;
+}
+.sntop .list li a span i {
+  position: absolute;
+  top: 0.12987013rem;
+  left: -0.19480519rem;
+  width: 0.1038961rem;
+  height: 0.1038961rem;
+  background: gold;
+  border-radius: 0.25974026rem;
+}
+.buying {
+  height: 4.15584416rem;
+}
+.buying .buyHd {
+  height: 1.03896104rem;
+}
+.buying .buyHd .buyIcon {
+  height: 100%;
+  width: 1.76623377rem;
+  background: url(../img/buying.png) no-repeat center;
+  background-size: 100% 0.61038961rem;
+  margin-left: 0.25974026rem;
+}
+.buying .buyHd .site {
+  height: 100%;
+  width: 1.42857143rem;
+  color: red;
+  line-height: 1.03896104rem;
+  font-size: 0.31168831rem;
+  margin: 0 0.25974026rem;
+}
+.buying .buyHd .time {
+  width: 2.33766234rem;
+  font-size: 0.18181818rem;
+  padding-top: 0.32467532rem;
+}
+.buying .buyHd .time span {
+  border: 1px solid black;
+}
+.buying .buyHd .time span:last-child {
+  border-color: red ;
+}
+.buying .buyHd .rob {
+  width: 2.5974026rem;
+  padding-top: 0.25974026rem;
+}
+.buying .buyHd .rob a {
+  width: 2.27272727rem;
+  height: 0.5974026rem;
+  font-size: 0.31168831rem;
+  background: gold;
+  line-height: 0.5974026rem;
+  border-radius: 0.19480519rem;
+  text-align: center;
+}
+.buying .buyHd .rob span {
+  width: 0.19480519rem;
+  height: 0.36363636rem;
+  background: url(../img/arrowR.png);
+  background-size: 100% 100%;
+  margin-top: 0.12987013rem;
+  margin-left: 0.07792208rem;
+}
+.buying .buylist {
+  height: 3.11688312rem;
+  overflow: hidden;
+  position: relative;
+}
+.buying .buylist ul {
+  width: 650%;
+  position: absolute;
+  left: 0;
+  padding: 0;
+}
+.buying .buylist ul li {
+  width: 2.98701299rem;
+  float: left;
+  margin-left: 0.12987013rem;
+}

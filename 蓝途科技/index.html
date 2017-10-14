@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+		  margin: 0;
+		  padding: 0;
+		}
+		li{
+		  list-style: none;
+		}
+		header,footer,section,nav{
+		  display: block;
+		}
+		#index{
+		  width: 900px;
+		  margin: 0 auto;
+		}
+		#header{
+
+		  height: 160px;
+		  background: #abcdef;
+     
+		}
+		#article{
+		
+		  height: 1000px;
+		  background: gray;
+		  position: relative
+		}
+		#article .nav{
+		  height: 35px;
+		}
+		#article .nav ul li{
+		  width: 125px;
+		  height: 100%;
+		  float: left;
+		  background: pink;
+		  border-right: 1px solid red;
+		  text-align: center;
+		  
+		}
+		#article .con{
+		  height: 300px;
+		  background: #9ff;
+		}
+		#article .con .left{
+		  width: 600px;
+		  float: left;
+		  height: 100%;
+		  background: purple;
+		}
+		#article .con .right{
+		  width: 300px;
+		  height: 100%;
+		  float: right;
+		  background: red;
+		}
+		#article .aside{
+		  width: 40px;
+		  height: 400px;
+		  position: absolute;
+		  right: -50px;
+		  top: 50%;
+		  margin-top: -200px;
+		  background: green
+		  
+		}
+		#article .aside a{
+		  display: block;
+		  height: 35px;
+		  line-height: 35px;
+		  color: black;
+		  background: pink;
+		}
+		dream{
+		  width: 200px;
+		  height: 100px;
+		  text-align: center;
+		  line-height: 100px;
+		  color: red;
+		  background: pink;
+		  border: 1px solid black;
+		  display: block;
+		}
+	</style>
+	<script>
+	  document.createElement('dream')
+	  document.createElement('header')
+	  document.createElement('section')
+	  document.createElement('nav')
+	  document.createElement('footer')
+	</script>
+	<body>
+	  <dream>我是自定义标签</dream>
+	  <section id="index">
+	    <header id="header">网页头部</header>
+      <article id='article'>
+        <header> 
+          <h1>习近平主持中央政治局会议 部署下半年经济工作</h1>
+        </header>
+        <nav class="nav">
+          <ul>
+            <li>nav</li>
+            <li>nav</li>
+            <li>nav</li>
+            <li>nav</li>
+            <li>nav</li>
+            <li>nav</li>
+            <li>nav</li>
+          </ul>
+        </nav>
+        <section class="con">
+          <div class="left"></div>
+          <div class="right"></div>
+        </section>
+        <aside class="aside">
+          <a href="">aside</a>
+          <a href="">aside</a>
+          <a href="">aside</a>
+          <a href="">aside</a>
+          <a href="">aside</a>
+          <a href="">aside</a>
+        </aside>
+        <section>
+          <figure>
+            <img src="img/logo.png" alt=""/>
+            <figcaption>这个图片是img</figcaption>
+          </figure>
+        </section>
+        <section>显示文字<mark>标记</mark></section>
+        <meter value='2' low="5" high="8" min="0" max="10" optimum="2"></meter><br />
+        <meter value='6' low="5" high="8" min="0" max="10" optimum="2"></meter><br />
+        <meter value='9' low="5" high="8" min="0" max="10" optimum="2"></meter><br />
+        
+        <progress id="bar" value="0" max="100"></progress><br />
+        <ruby>
+                      龍<rt>long</rt>
+        </ruby>
+        <section style="width: 605px;border: 1px solid blue;">
+          Dark light, just light each other. The responsibility that you and my121 shousssssss take together, such as one 
+        </section>
+      </article>
+      <footer id="footer"></footer>
+	  </section>
+	</body>
+	<script>
+	  var n=0;
+	  function step(){
+	    if(n<100)n++
+	    bar.value=n
+	    if(n<100)requestAnimationFrame(step)
+	  }
+	  requestAnimationFrame(step)
+	</script>
+</html>

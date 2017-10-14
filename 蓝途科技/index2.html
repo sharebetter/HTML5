@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Fly">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/indexMedia.css">
+    <script src="js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <!-- header start -->
+    <div id="header">
+        <div class="h-main">
+            <!--logo-->
+            <div class="h-m-logo">
+                <a href="index.html"><img src="img/logo.png" alt="" width="132" height="37"></a>
+            </div>
+            <!--nav-->
+            <div class="h-m-nav">
+                <ul class="nav-list1">
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li><a href="">移动校园</a></li>
+                    <li><a href="">经典案例</a></li>
+                    <li><a href="">公司动态</a></li>
+                    <li><a href="">招贤纳士</a></li>
+                    <li><a href="">联系我们</a></li>
+                </ul>
+                <ul class="nav-list2">
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li><a href="">移动校园</a></li>
+                    <li><a href="">经典案例</a></li>
+                    <li class="more" onselectstart="return false">更多<img src="img/index/nav_icon.png" />
+                        <div class="more-hide">
+                            <ul>
+                                <li><a href="">行业新闻</a></li>
+                                <li><a href="">招贤纳士</a></li>
+                                <li><a href="">联系我们</a></li>
+                                <li><a href="">兰途家族</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--end header-->
+
+    <!--banner-->
+    <div id="banner">
+        <div class="b-part">
+            <div class="part part1">
+                <div class="img1"></div>
+                <div class="img2"></div>
+            </div>
+            <div class="part part2">
+                <div class="img1">
+                    <p><img src="img/index/bg2-1.png" alt=""></p>
+                    <p><img src="img/index/bg2-2.png" alt=""></p>
+                    <p style="background: #b3cd35; width: 96%; padding: 2%; border-radius: 6px;"><img src="img/index/bg2-3.png" alt=""></p>
+                </div>
+                <div class="img2"></div>
+            </div>
+            <div class="part part3">
+                <div class="img1"></div>
+                <div class="img2">
+                    <p><img src="img/index/bg3-3.png" alt=""></p>
+                    <p><img src="img/index/bg3-4.png" alt=""></p>
+                    <p style="background: #b3cd35; width: 96%; padding: 2%; border-radius: 6px;"><img src="img/index/bg3-5.png" alt=""></p>
+                </div>
+            </div>
+        </div>
+        <div class="b-tab">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+    <!--end banner-->
+
+    <!--classic start-->
+    <div id="classic">
+        <div class="c-title">
+            <img src="img/index/t_c.png" alt="">
+            <p>经典案例</p>
+        </div>
+        <div class="c-main">
+            <ul>
+                <li><img src="img/index/i1.png" alt=""></li>
+                <li><img src="img/index/i2.png" alt=""></li>
+                <li><img src="img/index/i3.png" alt=""></li>
+                <li><img src="img/index/i4.png" alt=""></li>
+                <li><img src="img/index/i5.png" alt=""></li>
+                <li><img src="img/index/i6.png" alt=""></li>
+                <li><img src="img/index/i7.png" alt=""></li>
+                <li><img src="img/index/i8.png" alt=""></li>
+                <li><img src="img/index/i9.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="btn">
+            <div class="left"><img src="img/index/t_l.png" alt=""></div>
+            <div class="right"><img src="img/index/t_r.png" alt=""></div>
+        </div>
+    </div>
+    <!--end classic-->
+    <script src="js/index.js"></script>
+    <script src="jquery-3.1.1.min.js"></script>
+    
+    <script>
+    	$(function(){
+    		var $part=$('#banner .b-part .part');
+    		var $oLi = $('#banner .b-tab ul li');    		
+    		var index=0;
+    		$part.eq(index).show();
+    		$oLi.eq(index).addClass('on');
+    	    auto();
+    		$oLi.click(function(){
+    		      change(function(){
+    		      	index=$(this).index();
+    		      }.bind(this))
+    		})
+    		$('#banner').mouseenter(function(){
+    			clearInterval(timer);    			
+    		}).bind("mouseleave",function(){
+    			auto();
+    		})
+    		function change(fn){
+    			$part.eq(index).hide();
+    		    $oLi.eq(index).removeClass('on');
+    		    fn&&fn();    		    
+    		    $part.eq(index).show();
+    		    $oLi.eq(index).addClass('on');
+    		}
+    		function auto(){
+    			timer=setInterval(
+    				function(){
+	    				change(function(){
+		    				index++;
+		    				index=index>2?0:index;
+    			    })
+    			},3000)
+    		}
+    		
+    	})
+       $(function(){
+       	    $btn=$('.btn div');
+	       	$ul=$('.c-main ul');
+	       	$li=$ul.children();
+	       	var length=$li.length,
+	       	    mid=Math.floor(length/2),
+	       	    width=$li.eq(0).width(),	       	    
+	       	    sumWidth=0,
+	       	    clickTime=0,
+	       	    timer=0;
+	       	addClass();
+	       	setTimeout(function(){	       		
+	       		$li.each(function(i){
+		       		sumWidth+=$li.eq(i).width();
+	       	    })	
+	       	    $ul.css({'margin-left':-(sumWidth/2)+'px',"opacity":1})	       					       	    
+	       	},300)
+	       	
+            $(window).resize(function(){	       	
+	       	    clearTimeout(timer);
+	       	    timer=setTimeout(function(){
+	       	    	sumWidth=0;
+	       	        width=$li.eq(0).width(); 
+		       		$li.each(function(i){
+			       		sumWidth+=$li.eq(i).width();
+		       	   })	
+		       	    $ul.css({'margin-left':-(sumWidth/2)+'px'})	       					       	    
+	       	    },300)
+            })
+	       	$btn.click(function(){
+	       		if(new Date()-clickTime>350){
+	       			width=$li.eq(0).width();
+	       			if($(this).index()){
+	       				mid++;
+	       				mid%=length;
+	       	            $ul.stop().animate({
+		       	          	'margin-left':-(sumWidth/2)-width+'px'
+		       	             },10,function(){
+	                          $(this).css('marginLeft',-sumWidth/2+'px').append($(this).children().eq(0))	       	          	
+//	                         $(this).css('marginLeft',-sumWidth/2+'px').append($(this).children().first())
+	       	            })
+	       			}else{
+       				    mid--;
+       				    mid=mid<0?length-1:mid;
+       				    $ul.stop().animate({
+       				    	'marginLeft':-(sumWidth/2)+width+'px'
+       				    },10,function(){
+       				    	$(this).css('marginLeft',-sumWidth/2+'px').prepend($(this).children().last());
+       				    })
+	       			}
+	       			addClass();
+	       			clickTime=new Date();
+	       		}	
+	       		
+	       	})
+	       	function addClass(){
+	       		pre=mid+1>=length?0:mid+1;       		
+	       		latter=mid-1<0?length-1:mid-1;
+	       		$li.removeClass('mid slide');       		
+	       		$li.eq(mid).addClass('mid');
+	       		$li.eq(pre).addClass('slide');
+	       		$li.eq(latter).addClass('slide');       		
+	       	}
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

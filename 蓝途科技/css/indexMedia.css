@@ -1,0 +1,321 @@
+
+/*1200 ~ 1500*/
+    @media all and (max-width: 1500px) and (min-width: 1200px){
+        #banner{
+            height: 500px;
+        }
+        #banner .b-part .part1 .img1{
+            top: 308px;
+            left: 55px;
+        }
+        #banner .b-part .part1 .img2{
+            width: 640px;
+            height: 440px;
+        }
+        #banner .b-part .part2 .img1{
+            top: 300px;
+            left: 50px;
+        }
+        #banner .b-part .part2 .img2{
+            bottom: 20px;
+            right: 100px;
+            width: 635px;
+            height: 444px;
+        }
+        #banner .b-part .part3 .img1{
+            top: 0;
+            left: 45px;
+            width: 640px;
+            height: 490px;
+        }
+        #banner .b-part .part3 .img2{
+            top: 100px;
+            right: 100px;
+        }
+        #classic{
+            height: 790px;
+        }
+        #classic .c-main{
+            height: 475px;
+        }
+        #classic .c-main ul li{
+            width: 192px;
+            height: 317px;
+        }
+        #classic .c-main ul li.slide{
+            width: 240px;
+            height: 396px;
+        }
+        #classic .c-main ul li.mid{
+            width: 288px;
+            height: 475px;
+        }
+    }
+
+/* 900 ~ 1200 */
+    @media all and (max-width: 1200px) and (min-width: 900px){
+        #header .h-main .h-m-nav ul.nav-list1>li a{
+            padding: 23px 20px;
+        }
+        #banner{
+            height: 450px;
+        }
+        #banner .b-part .part1 .img1{
+            top: 288px;
+            left: 55px;
+        }
+        #banner .b-part .part1 .img2{
+            width: 500px;
+            height: 385px;
+            right: 40px;
+        }
+        #banner .b-part .part2 .img1{
+            top: 200px;
+            left: 50px;
+        }
+        #banner .b-part .part2 .img2{
+            bottom: 50px;
+            right: 50px;
+            width: 544px;
+            height: 384px;
+        }
+        #banner .b-part .part3 .img1{
+            top: 20px;
+            left: 30px;
+            width: 500px;
+            height: 390px;
+        }
+        #banner .b-part .part3 .img2{
+            top: 100px;
+            right: 50px;
+            width: 260px;
+            height: 100px;
+        }
+        #classic{
+            height: 740px;
+        }
+        #classic .c-main{
+            width: 75%;
+            height: 354px;
+            margin-top: 100px;
+        }
+        #classic .c-main ul li{
+            width: 144px;
+            height: 236px;
+        }
+        #classic .c-main ul li.slide{
+            width: 180px;
+            height: 295px;
+        }
+        #classic .c-main ul li.mid{
+            width: 216px;
+            height: 354px;
+        }
+    }
+
+/*0 ~ 900*/
+    @media all and (max-width: 900px){
+        #header{
+            height: 100px;
+            background: #fff;
+        }
+        #header .h-main .h-m-logo{
+            float: none;
+            width: 100%;
+            height: 45px;
+        }
+        #header .h-main .h-m-logo a{
+            width: 132px;
+            height: 37px;
+            padding-top: 8px;
+            margin: 0 auto;
+        }
+        #header .h-main .h-m-nav{
+            width: 100%;
+            height: 55px;
+        }
+        #header .h-main .h-m-nav ul.nav-list1{
+            display: none;
+        }
+        #header .h-main .h-m-nav ul.nav-list2{
+            display: block;
+        }
+        #banner{
+            margin-top: 106px;
+        }
+        #banner .b-part .part1 .img1{
+            left: 50%;
+            top: 270px;
+            width: 200px;
+            height: 80px;
+            margin-left: -100px;
+        }
+        #banner .b-part .part1 .img2{
+            left: 50%;
+            top: 8px;
+            width: 330px;
+            height: 240px;
+            margin-left: -165px;
+        }
+    }
+
+/*600 ~ 900*/
+    @media all and (max-width: 900px) and (min-width: 600px){
+        #header .h-main{
+            width: 600px;
+        }
+        #banner{
+            height: 350px;
+        }
+        #banner .b-part .part2 .img1{
+            top: 200px;
+            left: 30px;
+            width: 185px;
+            height: 90px;
+        }
+        #banner .b-part .part2 .img1 p{
+            margin: 10px 0;
+        }
+        #banner .b-part .part2 .img2{
+            bottom: 36px;
+            right: 10px;
+            width: 370px;
+            height: 270px;
+        }
+        #banner .b-part .part3 .img1{
+            top: 50px;
+            left: 20px;
+            width: 350px;
+            height: 270px;
+        }
+        #banner .b-part .part3 .img2{
+            top: 100px;
+            right: 50px;
+            width: 200px;
+            height: 100px;
+        }
+        #classic{
+            height: 690px;
+        }
+        #classic .c-main{
+            width: 70%;
+            height: 354px;
+            margin-top: 100px;
+        }
+        #classic .c-main ul li{
+            width: 144px;
+            height: 236px;
+        }
+        #classic .c-main ul li.slide{
+            width: 180px;
+            height: 295px;
+        }
+        #classic .c-main ul li.mid{
+            width: 216px;
+            height: 354px;
+        }
+    }
+
+/*0 ~ 600*/
+    @media all and (max-width: 600px){
+        #header{
+            min-width: 330px;
+        }
+        #header .h-main{
+            width: 100%;
+        }
+        #header .h-main .h-m-nav ul.nav-list2{
+            width: 320px;
+        }
+        #header .h-main .h-m-nav ul.nav-list2>li>a{
+            padding: 18px 21px;
+        }
+        #header .h-main .h-m-nav ul.nav-list2>li.more{
+            margin-left: 10px;
+        }
+        #banner{
+            height: 400px;
+        }
+        #banner .b-part .part1 .img1{
+            top: 285px;
+        }
+        #banner .b-part .part1 .img2{
+            top: 23px
+        }
+        #banner .b-part .part2 .img1{
+            top: 250px;
+            left: 50%;
+            width: 200px;
+            height: 96px;
+            margin-left: -100px;
+        }
+        #banner .b-part .part2 .img1 p{
+            margin: 10px 0;
+        }
+        #banner .b-part .part2 .img2{
+            bottom: 172px;
+            right: 50%;
+            width: 300px;
+            height: 207px;
+            margin-right: -150px;
+        }
+        #banner .b-part .part3 .img1{
+            top: 0;
+            left: 50%;
+            width: 300px;
+            height: 233px;
+            margin-left: -150px;
+        }
+        #banner .b-part .part3 .img2{
+            top: 250px;
+            right: 50%;
+            width: 200px;
+            height: 100px;
+            margin-right: -100px;
+        }
+        #classic{
+            height: 690px;
+        }
+        #classic .c-main{
+            width: 198px;
+            height: 327px;
+            margin-top: 100px;
+        }
+        #classic .c-main ul li{
+            width: 144px;
+            height: 236px;
+        }
+        #classic .c-main ul li.slide{
+            width: 180px;
+            height: 295px;
+        }
+        #classic .c-main ul li.mid{
+            width: 198px;
+            height: 327px;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

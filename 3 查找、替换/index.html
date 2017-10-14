@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap{
+			width: 700px;
+			height: 400px;
+			margin: 100px auto;
+			border: 1px solid black;
+		}
+		.wrap-top{
+			text-align: center;
+			margin-top: 10px;
+		}
+		#text{
+			margin:0px -100px;
+			line-height: 30px;
+		}
+		.btn{
+			border: 0;
+			width: 60px;
+			height: 30px;
+			margin-right: 10px;
+			/*outline: none;*/
+		}
+		#input1,#input2{
+			height: 30px;
+		}
+		a{
+			color: red;
+		}
+	</style>
+	<body>
+		 <div class="wrap">
+		 	<div class="wrap-top">
+			 	<input type="text" id="input1"/>
+			 	<input type="button" class="btn" value="查找"/>
+			 	<input type="text" id="input2"/>
+			 	<input type="button" class="btn" value="替换"/>
+			 	<br/><a style="line-height: 40px;">测试字：如果，我，的，一</a>
+		 	</div>
+		 	<pre class="cont" style="display: none;">
+					曾经有一份真诚的爱情放在我面前，
+					我没有珍惜，
+					等我失去的时候才后悔莫及，
+					人世间最痛苦的事莫过于此。
+					你的剑在我的咽喉上割下去吧！
+					不用再犹豫了！
+					如果上天能够给我一个再来一次的机会，
+					我会对那个女孩子说三个字：我爱你。
+					如果非要在这份爱上加上一个期限，				
+					我希望是——一万年！ 
+			</pre>
+				<pre id="text"></pre>
+		 </div>
+	
+		<script src="js/main.js"></script>
+	</body>
+</html>

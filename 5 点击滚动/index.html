@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				height: 350px;
+				width: 251px;
+				/*background: black;*/
+				margin: 50px auto;
+				border: 1px skyblue solid;
+				text-align: center;
+				color: white;
+				line-height: 35px;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			.wrap-top{
+				width: 250px;
+				height:35px;
+				background-color: black;
+				position: fixed;
+				top: 51px;
+				z-index: 99;
+			}
+			.wrap-bottom{
+				width: 250px;
+				height: 35px;
+				background: black;
+				position: fixed;
+				top:367px;
+				z-index: 99;
+			}
+			.wrap-content{
+				height: 275px;
+				width: 250px;	
+				top: 22px;
+				left: -10px;
+				position: relative;
+			}
+			img{
+				width: 255px;
+				height: 300px;				
+			}
+			img:nth-child(2),img:nth-child(3){
+				margin-top: -20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="wrap-top">向上</div>
+			<div class="wrap-content" onselectstart="return false">
+				<img src="img/scroll1.png"/>
+				<img src="img/scroll2.png"/>
+				<img src="img/scroll3.png"/>
+			</div>
+			<div class="wrap-bottom">向下</div>
+		</div>
+        
+        <script>
+        	var oImg = document.querySelector('.wrap-content');
+        	var oTop = document.querySelector('.wrap-top');
+        	var oBottom = document.querySelector('.wrap-bottom');  
+        	var t;
+        	oTop.onmousedown=function(){
+        		 clearInterval(t);
+        		 t = setInterval(function(){
+                	var top = parseFloat(getComputedStyle(oImg).top);
+                	if(top<=0){
+        		      oImg.style.top=top+10+'px';
+        		    }else{
+        		       oImg.style.top=22+'px';
+        		    }
+                },80) 
+        	}
+        	oTop.onmouseup=function(){
+        		clearInterval(t);
+        	}
+        	oTop.onmouseleave=function(){
+        		clearInterval(t);
+        	}
+        	oBottom.onmousedown=function(){   
+        		 clearInterval(t);
+                 t = setInterval(function(){
+                	var top = parseFloat(getComputedStyle(oImg).top);
+                	if(top>-558){
+        		      oImg.style.top=top-10+'px';
+        		    }else{
+        		       oImg.style.top=-558+'px';
+        		    }
+                },80) 
+        	}
+        	oBottom.onmouseup=function(){
+        		clearInterval(t);
+        	}
+        	oBottom.onmouseleave=function(){
+        		clearInterval(t);
+        	}
+        </script>		
+	</body>
+</html>

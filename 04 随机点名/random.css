@@ -1,0 +1,30 @@
+.box{
+	height: 500px;
+	width: 500px;
+	margin: 100px auto;
+	background-color: greenyellow;
+	text-align: center;
+	box-shadow: 0 0 15px green;
+}
+h1{
+	padding-top: 40px;
+}
+#name{
+	font-size: 20px;
+	width: 120px;
+	height: 40px;
+	line-height: 40px;
+	background-color: white;
+	border-radius: 5px;
+	margin: 30px auto;
+}
+button{
+	height: 40px;
+	width: 80px;
+	margin: 20px;
+}
+#result{
+	font-size: 24px;
+	color: red;
+	font-weight: bold;
+}

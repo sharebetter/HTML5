@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+	  body{
+      font:14px/35px "microsoft yahei";
+    }
+		*{
+		  margin: 0;
+		  padding: 0;
+		}
+		#pbl{
+		  width: 838px;
+		  margin: 100px auto;
+		  border: 1px solid gold;
+		  text-align: center;
+		}
+		#pbl ul{
+		  overflow: hidden;
+		}
+		#pbl ul li{
+		  list-style:none;
+		  width: 264px;
+	
+		  border: 1px solid #ddd;
+		  float: left;
+		}
+		#pbl ul li .con a{
+		  display: block;
+		  color: black;
+		  text-decoration: none;
+		  text-align: center;
+		  text-decoration: none;
+		}
+		#pbl ul li .con a img{
+		  display: block;
+		  opacity: 0;
+		}
+	  #pbl ul li .con a span{
+	    display: block;
+	    background: #DDDDDD;
+	  }
+	  #pbl ul li .con a p:hover{
+	    color: #ff6666;
+	  }
+	  #pbl ul li .con a span:hover{
+	    color: #ff6666;
+	  }
+	  #btn{
+	    text-decoration: none;
+	    color: black;
+	  }
+	</style>
+	<body>
+		<div id='pbl'>
+		  <ul>
+		  	<li></li>
+		  	<li style="margin: 0 20px;"></li>
+		  	<li></li>
+		  </ul>
+		  <a href="#" id='btn'>加载更多</a>
+		</div>
+	</body>
+	<script type="text/javascript" src="ajax.js"></script>
+	<script src="timeMove.js"></script>
+	<script type="text/javascript">
+	  var aLi=document.getElementsByTagName('li');
+	  var num=0
+	  getData(num)
+	  btn.onclick=function(){
+	    num+=3;
+	    getData(num)
+	  };
+	  window.onscroll=function(){
+	    var _index=getIndex()
+	    var oLi=aLi[_index]
+	    var scrollTop=document.documentElement.scrollTop||document.body.scrollTop
+	    if(getTop(oLi)+oLi.offsetHeight<scrollTop+document.documentElement.clientHeight){
+	      num+=3
+	      getData(num)
+	    }
+	  }
+	  function getData(num){
+	    ajax('get','data.php','',function(data){
+        data=JSON.parse(data)
+        for(var i=0;i<num+3;i++){
+          var src=data[i].src;
+          var title=data[i].title;
+          var oImg=new Image()
+          oImg.src=src
+          oImg.onload=function(){
+            var oDiv=document.createElement('div')
+            var oA=document.createElement('a')
+            var oP=document.createElement('p')
+            var oSpan=document.createElement('span')
+            oDiv.className='con'
+            oA.href='#';
+            oP.innerHTML=title;
+            oSpan.innerHTML='阅读原文';
+            oDiv.appendChild(oA)
+            oA.appendChild(this)
+            oA.appendChild(oP)
+            oA.appendChild(oSpan)
+            aLi[getIndex()].appendChild(oDiv)
+            move(this,{opacity:100},2500)
+          }
+        }
+    })
+	  }
+		
+		function getTop(obj){
+		  var t=0;
+		  while(obj)
+		  {
+		    t+=obj.offsetTop
+		    obj=obj.offsetParent
+		  }
+		  return t
+		}
+		
+		//获取高度最短的li
+		function getIndex(){
+		  var index=0;
+		  var aLiHeight=aLi[index].offsetHeight;
+		  for(var i=0;i<aLi.length;i++){
+		    if(aLi[i].offsetHeight<aLiHeight){
+		      index=i;
+		      aLiHeight=aLi[i].offsetHeight
+		    }
+		  }
+		  return index
+		}
+	</script>
+</html>
+ <!--<div class="con">
+            <a href="">
+              <img/>
+              <p>上海开启2016百威NOW</p>
+              <span>阅读原文</span>
+            </a>
+          </div>-->

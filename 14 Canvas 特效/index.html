@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Canvas</title>
+	</head>
+	<style type="text/css">
+		*{
+			margin:0;
+			padding: 0;
+		}
+		body{
+			overflow: hidden;
+		}
+		#canvas{
+			background: black;
+			display: block;
+		}
+	</style>
+	<body>
+		<canvas id="canvas"></canvas>
+	</body>
+	<script>	
+		var canvas=document.getElementById('canvas');
+		w=canvas.width=window.innerWidth;
+		h=canvas.height=window.innerHeight;
+		var mouX=0,mouY=0;
+		var ctx=canvas.getContext('2d');
+		var num=200;
+		var data=[];
+		var mou={};
+		for(var i=0;i<num;i++){
+			data[i]={x:Math.random()*w,y:Math.random()*h,xspeed:Math.random()*0.7-0.4,yspeed:Math.random()*0.7-0.4}
+			Circle(data[i].x,data[i].y);
+		}
+		
+		function Circle(x,y){
+			ctx.save();
+			ctx.fillStyle='white';
+			ctx.beginPath();
+			ctx.arc(x,y,0.5,0,2*Math.PI,false);
+			ctx.closePath();
+			ctx.fill();	
+			ctx.restore();
+		}
+		(function Move(){
+			ctx.clearRect(0,0,w,h);
+		    for(var i=0;i<num;i++){
+		    	data[i].x+=data[i].xspeed;
+		    	data[i].y+=data[i].yspeed;					    	
+				if(data[i].x>w||data[i].x<=0)data[i].xspeed=-data[i].xspeed;
+	            if(data[i].y>h||data[i].y<=0)data[i].yspeed=-data[i].yspeed; 			
+			    Circle(data[i].x,data[i].y);
+			    for(var j=0;j<num;j++){
+			    	line(data[i].x,data[i].y,data[j].x,data[j].y,50,'purple');
+			    	if(mou.x){
+			    	 line(mou.x,mou.y,data[j].x,data[j].y,80,'white');			    		
+			    	}
+			    }
+			   
+		    }		  
+			var t=window.requestAnimationFrame(Move);
+		})()
+		
+		function line(x1,y1,x2,y2,dis,color){
+			if(Math.pow(x2-x1,2)+Math.pow(y2-y1,2)<= Math.pow(dis,2)){
+				ctx.save();
+				var lin=ctx.createLinearGradient(x1,y1,x2,y2);
+				lin.addColorStop(0,'#33ffff');
+				lin.addColorStop(1,color);
+				ctx.beginPath();			
+				ctx.strokeStyle=lin;
+				ctx.moveTo(x1,y1);
+				ctx.lineTo(x2,y2);
+				ctx.stroke();
+				ctx.closePath();
+				ctx.restore()
+			}
+		}		
+         canvas.onmousemove=function(event){			        
+	    	var e=event||window.event;
+	    	 mou.x=e.clientX;
+	    	 mou.y=e.clientY;
+	    } 
+	    canvas.onmouseleave=function(){			        
+	    	mou={};
+	    } 
+	</script>
+</html>

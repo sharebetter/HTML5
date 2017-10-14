@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>网页音乐播放器</title>
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	
+	<body>
+		<div class="nav">
+			<div class="back-img"></div>
+			<ul>
+				<li class="m1" datasrc="mp3/1.mp3" title="末班车--信">
+					<img src="img/1.jpg" width="60px"/>
+				</li>
+				<li class="m2" datasrc="mp3/2.mp3" title="小幸运--Hebe">
+					<img src="img/2.jpg" width="90px"/>
+				</li>
+				<li class="m3" datasrc="mp3/3.mp3" title="绅士--薛之谦">
+					<img src="img/3.jpg" width="120px"/>
+				</li>
+				<li class="m4" datasrc="mp3/4.mp3" title="杀手--林俊杰">
+					<img src="img/4.jpg" width="90px"/>
+				</li>
+				<li class="m5" datasrc="mp3/5.mp3" title="晴天--周杰伦">
+					<img src="img/5.jpg" width="60px"/>
+				</li>
+			</ul>
+		</div>
+		<div class="music">
+			<div class="m-img">
+				<img src = "img/1.jpg" width="90px"/>
+			</div>
+			<div class="m-text">末班车--信</div>
+			<div class="m-btn">
+				<a href="#" class="m-prev"></a>
+				<a href="#" class="m-play"></a>
+				<a href="#" class="m-next"></a>
+			</div>
+			<div id="aa" class="m-close"></div>
+			<audio src="mp3/1.mp3" class="m-mp3"></audio>
+		</div>
+		<script src="js/jquery-3.0.0.min.js"></script>
+		<script src="js/music.js"></script>
+	</body>
+</html>

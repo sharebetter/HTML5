@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" class="cannot_select">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="Keywords" content="">
+    <meta name="Description" content="">
+    <title>音乐</title>
+    <link rel="stylesheet" href="css/music.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+    
+    <div class="music" id="music">
+      <div class="singer" id="singer">
+        <img id='singerImg' src="images/singer1.png" width="200" height="200">
+      </div>
+      <div class="song">
+        <p id="m_gm">岁月神偷</p>
+        <p id="m_singer">金玟岐</p>
+        <p id="album">金玟岐作品集</p>
+      </div>
+      <div class="btn1">
+        <a href="javascript:;" id="collect"></a>
+        <a id="download" target="_blank"></a>
+        <a href="javascript:;" id="m_mute"></a>
+        <div id="mutePro">
+          <span id="muteBar"></span>
+          <i id="muteBtn"></i>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="curTime" id="curTime">00:00</div>
+        <div class="pro-bar" id="proBar">
+          <span id="processBar"></span>
+          <i id="processBtn"></i>
+        </div>
+        <div class="allTime" id="allTime">00:00</div>
+      </div>
+      <div class="btn2">
+        <a href="javascript:;" id="rand"></a>
+        <a href="javascript:;" id="prev"></a>
+        <a href="javascript:;" id="play"></a>
+        <a href="javascript:;" id="next"></a>
+      </div>
+      <div class="menu_btn"></div>
+      <div class="menu">
+        <div class="menu_content">
+          <div class="menu_con" id="scrollbar">
+            <div class="content" id="m_list"></div>
+          </div>
+        </div>
+      </div>
+      <div class="lyric">
+        <div class="lyric_content">
+          <div class="lrcCon" id="lrcCon"></div>
+        </div>
+      </div>
+      <div class="lrcBtn" style='cursor:pointer;'>词</div>
+    </div>
+    <div class="face">
+      <a href="javascript:;" class="face_btn">皮肤设置</a>
+      <div class="bg">
+        <div class="nav">
+          <a href="javascript:;" class="active">小清新</a>
+          <a href="javascript:;">人物</a>
+          <a href="javascript:;">风景</a>
+        </div>
+        <div class="img">
+          <img src="images/2.jpg">
+          <img class="right" src="images/3.jpg">
+          <img class="bottom" src="images/4.jpg">
+          <img class="right bottom" src="images/5.jpg">
+        </div>
+      </div>
+    </div>
+    <canvas id="canvas" style='top:150px'></canvas>
+    <audio src="music/1.mp3" id="audio"></audio>
+    <script type="text/javascript" src="js/music.js">  	</script>
+  </body>
+</html>

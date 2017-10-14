@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚动条</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				width: 350px;
+				height: 400px;
+				background: pink;
+				position: relative;
+				top: 30px;
+				left: 38%;
+				/*overflow-y: scroll;*/
+				overflow: hidden;
+			}
+			.content{
+				width: 91%;
+				height: 98%;
+				line-height: 31px;
+				/*text-indent: 0px;*/
+				text-align: center;	
+				float: left;
+				position: absolute;
+				top: 0;
+				font-size: 17px;
+			
+			}
+			.right{
+				width: 20px;
+				height: 400px;
+				position: absolute;
+				right: 0;
+				top:0px;
+				float: right;
+				background: #CCCCCC;
+			}
+			.bar{
+				width: 100%;
+				height: 40px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: darkgrey;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="content">
+				  <p>曾经有一份真诚的爱情放在我面前，</p>
+				  <p>我没有珍惜，</p>
+				  <p>等我失去的时候才后悔莫及，</p>
+				  <p>人世间最痛苦的事莫过于此。</p>
+				  <p>你的剑在我的咽喉上割下去吧！ </p>
+				  <p>不用再犹豫了！ </p>
+				  <p>如果上天能够给我一个再来一次的机会， </p>
+				  <p>我会对那个女孩子说三个字：我爱你。 </p>
+				  <p>如果非要在这份爱上加上一个期限， </p>				
+				  <p>我希望是——一万年！ </p>
+					  <p>曾经有一份真诚的爱情放在我面前，</p>
+				  <p>我没有珍惜，</p>
+				  <p>等我失去的时候才后悔莫及，</p>
+				  <p>人世间最痛苦的事莫过于此。</p>
+				  <p>你的剑在我的咽喉上割下去吧！ </p>
+				  <p>不用再犹豫了！ </p>
+				  <p>如果上天能够给我一个再来一次的机会， </p>
+				  <p>我会对那个女孩子说三个字：我爱你。 </p>
+				  <p>如果非要在这份爱上加上一个期限， </p>				
+				  <p>我希望是——一万年！ </p>  
+				  <p>曾经有一份真诚的爱情放在我面前，</p>
+				  <p>我没有珍惜，</p>
+				  <p>等我失去的时候才后悔莫及，</p>
+				  <p>人世间最痛苦的事莫过于此。</p>
+				  <p>你的剑在我的咽喉上割下去吧！ </p>
+				  <p>不用再犹豫了！ </p>
+				  <p>如果上天能够给我一个再来一次的机会， </p>
+				  <p>我会对那个女孩子说三个字：我爱你。 </p>
+				  <p>如果非要在这份爱上加上一个期限， </p>				
+				  <p>我希望是——一万年！ </p>
+			</div>
+			<div class="right">
+				<div class="bar"></div>
+			</div>
+		</div>
+		
+		<script>
+			var oWrap = document.querySelector('.wrap')
+			var oContent = document.querySelector('.content');
+			var oBar = document.querySelector('.right .bar');
+			var rHeight = document.querySelector('.right')
+			var oTop,bTop;
+			var flag = true;
+//			var oContent = document.querySelector('.content');          
+//			oWrap.onmousewheel=function(e){
+//				var oTop = oContent.offsetTop;
+//				if(e.wheelDelta<0){
+//					oContent.style.top=oTop-5+'px';
+//				}
+//				if(e.wheelDelta>0 && oTop<=0){
+//					oContent.style.top=oTop+5+'px';
+//				}
+////				console.log(e.wheelDelta)
+//			}
+		mousewheel(oWrap,
+		function rfn(e){
+			e = e||window.event;
+			 oTop = oContent.offsetTop;
+			 bTop = oBar.offsetTop;
+			var delta = e.wheelDelta || -e.detail
+				if(delta<0 && oTop>=-600){
+					oContent.style.top=oTop-4.5+'px';
+					bTop<=360?bTop:360;
+					if(bTop<=360){
+					oBar.style.top=bTop+3+'px';}
+				}
+				if(delta>0 && oTop<=0){
+					oContent.style.top=oTop+4.5+'px';
+					bTop>=0?bTop:0;
+					if(bTop>0){
+					oBar.style.top=bTop-3+'px';}
+				}
+		})
+		document.onmousedown=function(e){
+			e=e||window.event;
+			maxTop= rHeight.clientHeight - oBar.clientHeight;
+
+//			console.log(maxTop)
+			var Y=e.clientY;
+		
+				bTop = oBar.offsetTop;
+			 oTop = oContent.offsetTop;
+			 
+			
+			oBar.onmousemove=function(e){
+				 e=e||window.event;
+//				 var diss = e.offsetY-oBar.offsetTop;
+var t=dis;
+				  var dis = (e.clientY - Y);
+				  var odis = (e.clientY - Y)*1.5;
+				  bTop =t+dis;
+				  bTop = Math.min(bTop,maxTop);
+				  bTop = Math.max(0,bTop)
+                 
+//				console.log(e.offsetY,bTop,diss)
+                  if(bTop!=0 && bTop!=maxTop){
+                  	oContent.style.top=oTop-odis+'px';
+				  oBar.style.top=bTop+'px';
+                  }
+				  
+//				  console.log(dis,e.clientY,oBar.offsetTop)
+				
+			 
+			}
+//			var bTop = oBar.offsetTop;
+		}
+		document.onmouseup=function(){
+			oBar.onmousemove=null;
+			flag=true;
+		}
+	
+        function mousewheel(obj,eFn){
+			document.onmousewheel===null?obj.onmousewheel=eFn:obj.addEventListener('DOMMouseScroll',eFn)
+		}
+		</script>
+	</body>
+</html>

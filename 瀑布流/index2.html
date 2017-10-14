@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加商品</title>
+		<style>
+			/**{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 300px;
+				height: 350px;
+				border: 1px solid black;
+				margin: 50px 400px;
+			}
+			input{
+				color: black;
+				margin: 10px 0;
+				height: 25px;
+			}*/
+			#box{
+				width: 100px;
+				height: 100px;
+				background: pink;		
+			
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--<form action="addGood.php" method="post">			
+				<p>商品名称:<input type="text" name="good_name" /></p>
+				<!--<p>分类id:<input type="text" name="type_id"/></p> 
+				<p>商品总数:<input type="text" name="total"/></p>
+				<p>商品图片:<input type="text" name="img"/></p>
+				<p>品牌id:<input type="text" name="brand_id"/></p>
+				<p>商品描述:<input type="text" name="despriction"/></p>
+			  <input type="submit" value="添加"/>
+			</form>-->
+		</div>	
+		<script type="text/javascript" src="jquery-1.11.0.js" ></script>
+		<script>	
+			var box=document.querySelector('#box');
+			$(document).click(function(){
+				$('#box').show(1000);
+			})
+		</script>
+	</body>
+</html>

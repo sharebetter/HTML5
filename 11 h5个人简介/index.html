@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人简介</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#section{
+				width: 1000px;
+				margin: 0 auto;
+				border: 2px solid #E2BD8A;	
+				/*height: 700px;*/
+			}
+			#header{
+				background:#FAECDA;
+				width: 100%;
+				height: 100px;							
+			}
+			#header p:first-child{
+				font-size: 24px;
+				text-align: center;
+				line-height: 50px;
+			}
+			p{
+				text-align: center;
+			}
+			mark{
+				background:#FF8D00;
+			}
+			nav ul li{
+				list-style: none;
+				float: left;
+				width: 166.666px;
+				height: 40px;
+				line-height: 40px;
+				font-size: 20px;
+				background:#FF8D00;
+				text-align: center;
+				color: white;
+			}
+			#img{
+				float: left;
+			}
+			img{
+               margin: 20px;
+               width: 200px;
+               height: 250px;
+			}
+			.introduction{
+				width: 100%;
+				height: 290px;
+				border-bottom: 2px solid #E2BD8A;
+				float: left;
+			}
+			#img .dec{
+				position: absolute;
+				z-index: 5;
+				height: 25px;
+				width: 200px;
+			    background:rgba(0, 0, 0,0.4);
+	            top:64%;
+	            margin-left: 20px;
+	            text-align: center;
+	            line-height: 25px;
+	            color: white;
+			}
+			.introduction ul{
+				margin:20px 280px;			
+			}
+			.introduction ul li{
+				list-style:none;
+				color: green;
+				line-height: 50px;
+			}
+			.introduction ul li a{
+				color: #000000;
+			}
+			#section .strong{
+				/*position: absolute;*/
+				width: 100%;
+				height: 430px;
+				border-bottom: 2px solid #E2BD8A;
+				/*background: red;*/
+				margin-top: 333px;
+			}
+			.strong h3{
+				color: green;
+				margin:360px 0 0 20px;
+			}
+			.strong .show{
+				margin:20px 0 0 20px;
+			}
+			.strong .show meter{
+				margin:10px 0;
+				width: 130px;				
+			}
+			.strong .show progress{
+				height: 20px;
+				width: 140px;
+				margin:15px 0;				
+			}
+			.strong .show a{
+				position: absolute;
+				margin:8px 20px ;
+			}
+			.strong .show span{
+				position: absolute;
+				color: white;
+				background: red;
+				padding:2px 4px;
+				cursor: pointer;
+				margin:12px 0 0 20px ;
+			}
+			h4{
+				text-align: center;
+				line-height: 30px;
+			}
+			#article{
+				width: 950px;
+				margin: 0 auto;
+			}
+			#article a{				
+				line-height: 30px;
+			}			
+			ruby{
+				color: blue;
+			}
+			ruby rt{
+				font-size: 12px;
+			}
+			footer{
+				text-align: center;
+				width: 100%;
+				height: 40px;
+				background: #D7D7D6;
+			}
+			footer a{
+				line-height: 40px;
+			}
+			progress{
+				color: red;
+				background-color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<section id="section">
+		   <header id="header"><p><mark>阿娇</mark>的个人简介</p><p>——葛娇</p></header>
+		   <nav>
+		   	<ul>
+		   		<li>温柔</li>		   		
+		   		<li>聪明</li>
+		   		<li>可爱</li>
+		   		<li>贤惠</li>
+		   		<li>文静</li>
+		   		<li>美丽</li>
+		   	</ul>
+		   </nav>
+		   <section class="introduction">
+		   	 	<figure id="img">
+			   	 	<img src="13 冰雪奇缘.jpg"/>
+			   	 	<figcaption class="dec">美女~</figcaption>
+		   	    </figure>  
+	   	    	<section>
+	   	    		<ul class="info">
+		   	    		<li>姓名：<a>葛娇</a></li>
+		   	    		<li>性别：<a>女</a></li>
+		   	    		<li>出生日期：<a>1992年2月28日</a></li>
+		   	    		<li>家庭住址：<a>江苏省徐州市沛县</a></li>
+		   	    		<li>个人简介：<a>见到我你会发现，原来美丽是这样具体呀！</a></li>
+		   	    	</ul>		
+	   	    	</section>
+		   </section>
+		   <section class="strong">
+		   	<h3>个人技能</h3>
+		   	 <div class="show">
+		   	 	<meter value="8" min="0" max="10" low="4" high="10" optimum="6"></meter><a>div+css熟练程度</a><br/>
+			   	 <meter value="9" min="0" max="10" low="4" high="7"></meter><a>js+jquery熟练程度</a><br/>		   	 	
+			   	 <meter value='9.5' low="5" high="8" min="0" max="10"></meter><a>div+css熟练程度</a><br />
+			   	 <progress id="blood" value="5" min="0" max="100">asdtga</progress><span id="click">满血复活</span>
+		   	 </div>
+		   	 <article id="article">
+		   	 	<header style="margin-bottom: 10px;"><h4>博学多才的女孩子</h4><p>——beautiful</p></header>
+		   	 	<a>只有懂得放下，才能掌握当下。曾经拥有的，不要忘记；已经得到的，更加珍惜；属于自己的，不要放弃；已经失去的，<ruby>留作回忆<rt>"我是注释"</rt></ruby>；想要得到的，一定要努力。累了，把心靠岸；选择了，就不要后悔；苦了，才懂得满足；痛了，才享受生活；伤了，才明白坚强。总是给人添烦恼，别人恐怕避之不及，总是骚扰别人，只会讨人生厌。说话罗罗唆嗦，让人打心眼里厌恶，做事拖泥带水，别人终无宁日，人都会讨厌别人，却从没有人会...</a>
+		   	 </article>
+		   </section>
+		   <footer><a>*************联系方式:***********</a></footer>
+		</section>
+		<script>
+			var value=0;
+			var click=document.querySelector("#click");
+			click.onclick=function step(){
+				if(value<100)value++;
+				blood.value=value
+				if(value<100)requestAnimationFrame(step);
+			}
+		</script>
+	</body>
+</html>

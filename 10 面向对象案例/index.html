@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{ margin:0; padding:0; font-family:Microsoft yahei,serif;}
+            #banner,#banner2{
+                width: 600px;
+                height: 347px;
+                margin: 50px auto;
+                position: relative;
+            }
+            #banner .pic,#banner2 .pic{
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+            #banner .pic ul li,#banner2 .pic ul li{
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                list-style: none;
+                display: none;
+            }
+            #banner .pic ul li img,#banner2 .pic ul li img{
+                display: block;
+                width: 100%;
+            }
+            #banner .btn div,#banner2 .btn div{
+                width: 30px;
+                height: 60px;
+                background: rgba(0,0,0,.5);
+                color: #fff;
+                text-align: center;
+                line-height: 60px;
+                font-weight: bold;
+                font-size: 14px;
+                cursor: pointer;
+                position: absolute;
+                top: 50%;
+                margin-top: -30px;
+            }
+            #banner .btn div.left,#banner2 .btn div.left{
+                left: 0;
+            }
+            #banner .btn div.right,#banner2 .btn div.right{
+                right: 0;
+            }
+            #banner .tab,#banner2 .tab{
+                width: 91px;
+                height: 12px;
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                margin-left: -45px;
+            }
+            #banner2 .tab{
+                width: 73px;
+                margin-left: -36px;
+            }
+            #banner .tab li,#banner2 .tab li{
+                width: 12px;
+                height: 12px;
+                border-radius: 100%;
+                float: left;
+                margin: 0 3px;
+                cursor: pointer;
+                background: rgba(255,255,255,.8);
+                list-style: none;
+            }
+            #banner .tab li.on,#banner2 .tab li.on{
+                background: #f60;
+            }
+	</style>
+	<body>
+	 <div id="banner">
+      <div class="pic">
+          <ul>
+              <li><img src="img/1.jpg" alt=""></li>
+              <li><img src="img/2.jpg" alt=""></li>
+              <li><img src="img/3.jpg" alt=""></li>
+              <li><img src="img/4.jpg" alt=""></li>
+              <li><img src="img/5.jpg" alt=""></li>
+          </ul>
+      </div>
+      <div class="btn">
+          <div class="left"> < </div>
+          <div class="right"> > </div>
+      </div>
+      <div class="tab">
+          <ul>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+          </ul>
+      </div>
+  </div>
+   <div id="banner2">
+            <div class="pic">
+                <ul>
+                    <li><img src="img/1.jpg" alt=""></li>
+                    <li><img src="img/2.jpg" alt=""></li>
+                    <li><img src="img/3.jpg" alt=""></li>
+                    <li><img src="img/4.jpg" alt=""></li>
+                </ul>
+            </div>
+            <div class="btn">
+                <div class="left"> < </div>
+                <div class="right"> > </div>
+            </div>
+            <div class="tab">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+	</body>
+	<script type="text/javascript">
+
+	  	  /*
+	     函数执行时，this指向调用该函数的对象
+	       例如：a.goudan();goudan函数内部this指向a
+	       例如：dachui();没有对象调用  this指向window
+	   call能改变函数执行时候的this指向
+	   
+	   
+	   事件函数，当事件触发时执行，this指向事件绑定的节点
+	  bind能在事件函数后面追加，改变事件函数内部this指向
+	  bind也能在定时器函数参数后面追加，改变定时器参数函数的this指向
+	   * 
+	   * 
+	   * */
+		function Banner($li,$btn,$tab){
+		  //this指向实例化对象
+		  this.$li=document.querySelectorAll($li);
+		  this.$btn=document.querySelectorAll($btn);
+		  this.$tab=document.querySelectorAll($tab)
+		  this.length=this.$li.length;
+		  this.index=0;
+		  this.init();
+		  this.btnClick();
+		  this.tabClick()
+		};
+		Banner.prototype.init=function(){
+		  this.$li[0].style.display='block';//实例化对象
+		  this.$tab[0].className='on';
+		}
+		
+		Banner.prototype.btnClick=function(){
+		  for(var i=0;i<2;i++){
+		    (function(i){
+		      //本来函数自执行this指向window；但是用call改变了this指向，现在指向实例化对象
+		      this.$btn[i].onclick=function(){
+		        //本来事件函数this指向触发的节点，但是bind改变了this指向，现在指向实例化对象
+		        this.change(function(){
+		          if(i){
+                this.index++//this指向实例化对象
+                this.index%=this.length
+              }else{
+                this.index--
+                if(this.index<0)this.index=this.length-1
+              }
+		        })
+		      }.bind(this);//实例化对象
+		    }).call(this,i)//实例化对象
+		  }
+		}
+		Banner.prototype.tabClick=function(){
+		   //this指向实例化对象
+		  for(var i=0;i<this.length; i++){
+		    (function(i){
+		       this.$tab[i].onclick=function(){//this指向实例化对象
+	               this.change(function(){
+	                 this.index=i//this指向实例化对象
+	               })
+              }.bind(this)
+		    }).call(this,i)
+		  }
+		}
+		Banner.prototype.change=function(fn){
+		   //this指向实例化对象
+		   this.$li[this.index].style.display='none';
+		   this.$tab[this.index].className=''
+		   fn&&fn.call(this)//本来fn()自执行this指向window，但是call改变了this指向；指向实例化对象
+		   this.$li[this.index].style.display='block'
+		   this.$tab[this.index].className='on';
+		}
+        
+        
+        function Banner2($li,$btn,$tab,$ban2){
+         	Banner.call(this,$li,$btn,$tab);
+         	this.$ban=document.querySelector($ban2)
+         	this.setchange();
+         	this.overStop();
+         }
+         for(var i in Banner.prototype){
+         	Banner2.prototype[i]=Banner.prototype[i];
+         }
+         Banner2.prototype.setchange=function(){
+         	this.timer=setInterval(function(){		     
+		        this.change(function(){		          
+                this.index++//this指向实例化对象
+                this.index%=this.length;            
+		        });
+		      }.bind(this),3000);
+         }  
+         Banner2.prototype.overStop=function(){
+         	this.$ban.onmouseover=function(){        			
+         		clearInterval(this.timer);         		
+         	}.bind(this)
+         	this.$ban.onmouseleave=function(){
+//       		console.log(this)
+         		this.setchange()	
+         	}.bind(this)
+         }
+		var b1=new Banner('#banner .pic li','#banner .btn div','#banner .tab li');
+		var b2=new Banner2('#banner2 .pic li','#banner2 .btn div','#banner2 .tab li','#banner2');
+
+	</script>
+</html>

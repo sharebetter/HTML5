@@ -1,0 +1,130 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+.header{
+	width: 100%;
+	height: 50px;
+	background-color: blue;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 50px;
+}
+.content{
+	margin-left: 4%;
+	margin-right: 4%;
+	width: 98%;
+}
+.img{
+	width: 22%;
+	height: 330px;
+	border: 5px solid darkcyan;
+	border-radius: 10px;
+	float: left;
+	margin-right: 30px;
+	margin-top: 30px;
+}
+@media (max-width: 1200px){
+	.img{
+		width: 30%;
+		height: 330px;
+	}
+}
+@media (max-width: 1036px){
+	.img{
+		width: 46%;
+		height: 330px;
+	}
+}
+@media (max-width: 782px){
+	.img{
+		width: 95%;
+		height: 330px;
+	}
+}
+
+.img1{
+	background: url(../img/1.jpg);
+	background-size: cover;
+}
+.img2{
+	background: url(../img/2.jpg);
+	background-size: cover;
+}
+.img3{
+	background: url(../img/3.jpg);
+	background-size: cover;
+}
+.img4{
+	background: url(../img/4.jpg);
+	background-size: cover;
+}
+.img5{
+	background: url(../img/5.jpg);
+	background-size: cover;
+}
+.img6{
+	background: url(../img/6.jpg);
+	background-size: cover;
+}
+.img7{
+	background: url(../img/7.jpg);
+	background-size: cover;
+}
+.img8{
+	background: url(../img/8.jpg);
+	background-size: cover;
+}
+.img9{
+	background: url(../img/9.jpg);
+	background-size: cover;
+}
+.img10{
+	background: url(../img/10.jpg);
+	background-size: cover;
+}
+.img11{
+	background: url(../img/11.jpg);
+	background-size: cover;
+}
+.img12{
+	background: url(../img/12.jpg);
+	background-size: cover;
+}
+.img13{
+	background: url(../img/13.jpg);
+	background-size: cover;
+}
+.img14{
+	background: url(../img/14.jpg);
+	background-size: cover;
+}
+.img15{
+	background: url(../img/15.jpg);
+	background-size: cover;
+}
+.img16{
+	background: url(../img/16.jpg);
+	background-size: cover;
+}
+.img17{
+	background: url(../img/17.jpg);
+	background-size: cover;
+}
+.img18{
+	background: url(../img/18.jpg);
+	background-size: cover;
+}
+.img19{
+	background: url(../img/19.jpg);
+	background-size: cover;
+}
+.img20{
+	background: url(../img/20.jpg);
+	background-size: cover;
+}
+

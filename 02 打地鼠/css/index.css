@@ -1,0 +1,82 @@
+*{
+	margin: 0;
+}
+html, body{
+	height: 100%;
+}
+body{
+	background-image: url(../image/bg.jpg);
+	/*自定义鼠标样式*/
+	cursor: url(../image/cursor.png), auto;
+}
+main{
+	width: 600px;
+	height: 600px;
+	/*border: 1px solid white;*/
+	/*水平垂直居中的效果，原理未知*/
+	position: absolute;
+	left: 0; top: 0; right: 0; bottom: 0;
+	margin: auto;
+	display: table;
+}
+section{
+	width: 100%;
+	height: 150px;
+	display: table-row;
+}
+div{
+	width: 150px;
+	height: 150px;
+	/*设置为行内块标签，它们可以共处一行，而且可以改变宽高*/
+	/*display: inline-block;*/
+	/*float它会破坏文档流，使元素向左浮动，所占的空间最小*/
+	/*float: left;*/
+	background-image: url(../image/hole.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	/*当只设置了y轴方向的参数时，浏览器会自动解析x轴方向的参数为center*/
+	background-position: bottom;
+	text-align: center;
+	display: table-cell;
+	/*必须用在display: table-cell的元素当中*/
+	vertical-align: bottom;
+}
+img{
+	width: 70%;
+	height: 0;
+	margin-bottom: 15px;
+	/*设置动画前后是否保留动画样式*/
+	animation-fill-mode: both;
+}
+.score{
+	width: 200px;
+	height: 50px;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	position: absolute;
+	top: 100px;
+	border-top-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	text-align: center;
+	line-height: 48px;
+	font-size: 36px;
+	-moz-user-select: none;
+}
+@keyframes show{
+	from{height: 0;}
+	to{height: 70%;}
+}
+@keyframes hide{
+	from{height: 70%;}
+	to{height: 0;}
+}
+.show{
+	animation-name: show;
+	animation-duration: 0.3s;
+	animation-timing-function:linear;
+	/*animation-fill-mode: both;*/
+}
+.hide{
+	animation: hide 0.1s linear;
+	/*animation-fill-mode: both;*/
+}

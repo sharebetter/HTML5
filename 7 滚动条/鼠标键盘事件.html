@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>标题</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	   #box{
+	   	width: 50px;
+	   	height: 50px;
+	   	position: absolute;
+	   	background: pink;
+	   	left: 500px;
+	   	top: 300px;
+	   }
+	   li{
+	   	  list-style: none;
+	   	  height: 50px;	   	  
+	   	  border-bottom: 1px solid black;
+	      text-indent: 30px;
+	      line-height: 50px;
+	      
+	   }
+	   .grey{
+	   	background:gainsboro;
+	   }
+	</style>
+</head>
+<body>
+      <!--<div id="box"></div>-->
+       <!--右键菜单：oncontextmenu
+		 	
+		 	阻止默认事件：
+		 		event.preventDefault()
+		 		
+		 	事件函数里面的return false相当于：
+		 		event.preventDefault();
+		 		event.cancelBubble=true;-->
+       
+      <script>
+      	document.oncontextmenu=function(e){
+      		e=e||window.event;
+      		var count=0;
+      		var flag = document.querySelector('#aa');
+      		  e.preventDefault();
+      		   if(flag){this.body.removeChild(flag)}	
+	      		var oDiv = document.createElement('div');
+	      		oDiv.id='aa';
+	      	    oDiv.style.cssText = 'height: 357px;width: 300px;border:1px solid black;border-bottom:none; background:#FFFFFF;position: absolute;top:'+
+	      	                       e.clientY+'px;left:'+e.clientX+'px;'
+	            oDiv.innerHTML='<li>查看</li><li>排序方式</li><li>刷新</li><li>撤销 移动</li><li>图形属性</li><li>图形选择</li><li>粘贴</li>';
+	            document.body.appendChild(oDiv);
+      		    e.cancelBubble=true;
+	      		var oLi=document.querySelectorAll('li');
+	             for(var i=0;i<oLi.length;i++){
+	             	oLi[i].i=i
+	             	oLi[i].onmousemove=function(){
+		             	this.className='grey';
+			           	count=this.i;
+			           	document.onkeydown=function(e){
+				         	e=e||window.event;
+				        	for(var i=0;i<oLi.length;i++){
+				         		oLi[i].className='';
+				         	}
+				         	if(e.keyCode==40){
+				         		count=++count>6?0:count;
+				         		console.log(count)
+				         		oLi[count].className='grey';
+				         	}
+				         	if(e.keyCode==38){
+				         		count=--count<0?6:count;
+				         		console.log(count)
+				         		oLi[count].className='grey';
+				         	}
+		                }
+	                }
+	             	oLi[i].onmouseleave=function(){
+	             		this.className='';
+	             	}	
+	               
+                 }
+	             oDiv.onclick=function(e){e.cancelBubble=true}
+	         
+      	}
+      	document.onclick=function(){
+      		var flag = document.querySelector('#aa')
+      		if(flag){
+      			this.body.removeChild(flag);
+//    			console.log(flag);
+      		}
+      		
+      	}
+//    	var oKey =document.getElementById('box'); 
+//    	console.log(oKey)
+//    	document.onkeydown=function(e){
+//    		console.log(2333)
+//    		e=e||window.event;
+//    		console.log(e.keyCode)
+//    		if(e.keyCode==37){
+//    			oKey.style.left=oKey.offsetLeft-5+'px';
+//    			console.log(oKey.offsetLeft)
+//    		}
+//    	}
+      </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    background: #F2F2F2;;
+}
+li{
+    list-style: none;
+}
+a{
+  text-decoration: none;
+  color:#333
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+
+.border{
+    border: 1px solid blue;
+}
+.borderR{
+    border: 1px solid red;
+}
+.borderG{
+    border: 1px solid green;
+}
+.clearFix:after{
+    content: '';
+    display: block;
+    clear: both;
+    overflow: hidden;
+    zoom: 1;
+}
+@rem:77rem;
+#hd{
+   height: 90/@rem;
+   background: gold;
+}
+#hd .class{
+  position: absolute;
+  left: 24/@rem;
+  top: 13/@rem;
+  width: 40/@rem;
+  height: 75/@rem;
+  background: url(../img/class.png);
+  background-size:44/@rem 75/@rem;
+}
+#hd .shop{
+    position: absolute;
+    right: 20/@rem;
+    top: 13/@rem;
+    width: 63/@rem;
+    height: 68/@rem;
+    background: url(../img/shop.png);
+    background-size: 63/@rem 68/@rem;
+}
+#hd .search{
+    
+    background: gold;
+    padding:16/@rem 100/@rem 0;
+   
+}
+#hd .search .bar{
+    height: 62/@rem;
+    background:#FEF1CE;
+    position: relative;
+}
+#hd .search .bar .ico{
+    position: absolute;
+    left:20/@rem ;
+    top:15/@rem;
+    width:27/@rem;
+    height: 28/@rem;
+    background: url(../img/search.png);
+    background-size:27/@rem 28/@rem;
+}
+//#hd .search .bar form{
+//  
+//
+//}
+#hd .search .bar form input{
+    position: absolute;
+    left: 50/@rem;
+    top: 0;
+    width: 320/@rem;
+    height: 100%;
+    vertical-align: top;
+    border: none;
+    background: transparent;
+}
+
+/* 轮播图*/
+.banner{
+    height: 320/@rem;
+    position: relative;
+    overflow: hidden;
+}
+.banner ul{
+    width:700%;height: 100%;
+}
+.banner ul li{
+    width: 770/@rem;
+    height: 100%;
+    float: left;
+}
+.banner ul li a{
+    height: 100%;
+    display: block;
+}
+.banner ul li a img{
+    vertical-align: top;//对齐方式
+}
+.banner ol{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 18/@rem;
+    left: 0;
+    line-height: 0;
+}
+.banner ol li{
+    width: 12/@rem;
+    height: 12/@rem;
+    display: inline-block;
+    background: white;
+    vertical-align: top;
+    border-radius: 6/@rem;
+    margin: 0 5/@rem;
+}
+.banner ol .swiper-pagination-bullet-active{
+    background: #ffc001;
+}
+
+.nav{
+    background: #fff;
+    padding-top: 20/@rem;
+    padding-bottom: 6/@rem;
+}
+.nav ul{
+    height: 120/@rem;   
+    margin-bottom: 20/@rem;
+    display: -webkit-flex;
+    display: flex;
+}
+.nav ul li{
+    flex: 1;
+}
+.nav ul li a{
+    height: 100%;
+    display: block;
+    color: #ccc;
+    font-size: 24/@rem;
+    text-align: center;
+}
+.nav ul li a img{
+    width:90/@rem;
+    height: 80/@rem;
+}
+.nav ul li a span{
+    display: block;
+}
+
+.sntop{
+    padding-top: 28/@rem;
+    position: relative;
+    background: #fff;
+    margin: 2/@rem 0 25/@rem 0;
+}
+.sntop .snIco{
+    width:145/@rem;
+    height: 64/@rem;
+    background: url(../img/sntop.png);
+    background-size: 100% 100%;
+}
+.sntop .line{
+    width: 2/@rem;
+    height: 40/@rem;
+    background: #ddd;
+    margin-top: 10/@rem;
+    margin-left:20/@rem;
+}
+.sntop .list{
+    width: 550/@rem;
+    height: 65/@rem;
+    margin-top: -10/@rem;
+    overflow: hidden;
+    position: relative;
+}
+.sntop .list ul{
+    width: 100%;
+    position: absolute;
+    top:0 ;
+    left:30/@rem;
+}
+.sntop .list li{
+    height: 100%;
+}
+.sntop .list li a{
+    height: 100%;
+    display: block;
+    font-size: 25/@rem;
+}
+.sntop .list li a span{
+    height: 28/@rem;
+    display: block;
+    position: relative;
+}
+.sntop .list li a span:first-child{
+    margin-bottom: 6/@rem;
+}
+.sntop .list li a span:last-child{
+    color: #ddd;
+}
+.sntop .list li a span i{
+    position: absolute;
+    top: 10/@rem;
+    left: -15/@rem;
+    width:8/@rem;
+    height:8/@rem;
+    background: gold;
+    border-radius: 20/@rem;
+}
+
+
+.buying{
+    height: 320/@rem;
+}
+.buying .buyHd{
+    height: 80/@rem;
+}
+.buying .buyHd .buyIcon{
+    height: 100%;
+    width:136/@rem;
+    background: url(../img/buying.png) no-repeat center;
+    background-size: 100% 47/@rem;
+    margin-left: 20/@rem;
+}
+.buying .buyHd .site{
+    height: 100%;
+    width: 110/@rem;
+    color: red;
+    line-height:80/@rem;
+    font-size: 24/@rem;
+    margin: 0 20/@rem;
+}
+.buying .buyHd .time{
+    width: 180/@rem;
+    font-size: 14/@rem;
+    padding-top: 25/@rem;
+}
+.buying .buyHd .time span{
+    border: 1px solid black;
+}
+.buying .buyHd .time span:last-child{
+    border-color:red ;
+}
+.buying .buyHd .rob{
+    width: 200/@rem;
+    padding-top:20/@rem;
+}
+.buying .buyHd .rob a{
+    width: 175/@rem;
+    height: 46/@rem;
+    font-size: 24/@rem;
+    background: gold;
+    line-height: 46/@rem;
+    border-radius: 15/@rem;
+    text-align: center;
+}
+.buying .buyHd .rob span{
+    width:15/@rem ;
+    height: 28/@rem;
+    background: url(../img/arrowR.png);
+    background-size: 100% 100%;
+    margin-top: 10/@rem;
+    margin-left: 6/@rem;
+}
+.buying .buylist{
+    height: 240/@rem;
+    overflow: hidden;
+    position: relative;
+}
+.buying .buylist ul {
+    width: 650%;
+    position: absolute;
+    left: 0;
+    padding: 0;
+}
+.buying .buylist ul li{
+    width:230/@rem;
+    float: left;
+    margin-left: 10/@rem;
+}

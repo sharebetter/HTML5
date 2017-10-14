@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<script>
+      var html=document.querySelector('html');//获取html元素
+      var width=html.getBoundingClientRect().width;//获取屏幕的宽度
+      html.style.fontSize=width/10+"px"
+  </script>
+	</head>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script src="js/swiper-3.4.2.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<body>
+	  <header id="hd">
+	    <div class="class"></div>
+	    <div class="search">
+	      <div class="bar">
+	        <a href="#" class="ico">
+            <form action="" method="post">
+              <input type="text" placeholder="淘淘淘" />
+            </form>
+          </a>
+	      </div>
+	    </div>
+	    <div class="shop"></div>
+	  </header>
+	  <section id="main">
+	  <!--轮播图-->
+	  <section class="banner swiper-container1">
+	      <ul class="swiper-wrapper">
+	      	<li class="swiper-slide"><a href=""><img src="img/banner1.jpg" width="100%" height="100%"/></a></li>
+	      	<li class="swiper-slide"><a href=""><img src="img/banner2.jpg" width="100%" height="100%"/></a></li>
+	      	<li class="swiper-slide"><a href=""><img src="img/banner3.jpg" width="100%" height="100%"/></a></li>
+	      	<li class="swiper-slide"><a href=""><img src="img/banner4.jpg" width="100%" height="100%"/></a></li>
+	      	<li class="swiper-slide"><a href=""><img src="img/banner5.jpg" width="100%" height="100%"/></a></li>
+	      </ul>
+	      <ol class="swiper-pagination">
+	        <!--<li class="on"></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>
+	        <li></li>-->
+	      </ol>
+	    </section>
+	     
+	  <!--导航-->
+	  <nav class="nav">
+	      <ul>
+	      	<li><a href=""><img src="img/nav1.png" /> <span>分类</span> </a></li>
+	      	<li><a href=""><img src="img/nav2.png" /><span>大聚惠</span></a></li>
+	      	<li><a href=""><img src="img/nav3.png" /><span>苏宁超市</span></a></li>
+	      	<li><a href=""><img src="img/nav4.png" /><span>红孩子母婴</span></a></li>
+	      	<li><a href=""><img src="img/nav5.png" /><span>特价手机</span></a></li>
+	      </ul>   
+	      <ul>
+          <li><a href=""><img src="img/nav6.png" /> <span>家电商城</span> </a></li>
+          <li><a href=""><img src="img/nav7.png" /><span>赚钱</span></a></li>
+          <li><a href=""><img src="img/nav8.png" /><span>领云钻</span></a></li>
+          <li><a href=""><img src="img/nav9.png" /><span>身边苏宁</span></a></li>
+          <li><a href=""><img src="img/nav10.png" /><span>优惠券</span></a></li>
+        </ul>
+	    </nav>
+	  <!--苏宁头条-->
+	  <section class="sntop clearFix">
+	    <span class="snIco fl"></span>
+	    <span class="line fl"></span>
+	    <div class="list fr swiper-container2">
+	       <ul class="swiper-wrapper">
+          <li class="swiper-slide"><a href=""><span><i></i>>今年全球诞生了20件黑科技 </span><span><i></i>苹果财报低于预期 三星创新高</span></a></li>
+          <li class="swiper-slide"><a href=""><span><i></i>>三星确认提前生产S8 1000万台 </span><span><i></i>王者归来！诺基亚首款安卓机发布</span></a></li>
+          <li class="swiper-slide"><a href=""><span><i></i>>看看IT土豪们2016花了哪些钱 </span><span><i></i>下海搞手机的电脑厂商现在咋样了？</span></a></li>
+         </ul>
+	    </div>
+	   
+	  </section>
+	  
+	  <!--掌上抢-->
+	  <section class="buying borderG">
+	    <div class="buyHd clearFix">
+	      <div class="buyIcon fl"></div>
+	      <div class="site fl">21点场次</div>
+	      <div class="time fl">
+	        <span id="hour"></span> :
+	        <span id="min"></span> :
+	        <span id="sec"></span>
+	      </div>
+	      <div class="rob fr">
+	        <a href="#" class="fl">花少钱,抢好物</a>
+	        <span class="fl"></span>
+	      </div>
+	    </div>
+	     <div class="buylist borderR">
+          <ul>
+            <li><img src="img/buy1.png" alt="" width="100% "height="100%"/></li>
+            <li><img src="img/buy2.png" alt="" width="100% "height="100%"/></li>
+            <li><img src="img/buy3.png" alt="" width="100% "height="100%"/></li>
+            <li><img src="img/buy1.png" alt="" width="100% "height="100%"/></li>
+            <li><img src="img/buy2.png" alt="" width="100% "height="100%"/></li>
+            <li><img src="img/buy3.png" alt="" width="100% "height="100%"/></li>
+          </ul>
+        </div>
+	  </section>
+	  </section>
+	  
+	  
+	</body>
+	<script type="text/javascript">
+		var endTime=new Date();
+		endTime.setFullYear(2017);
+		endTime.setMonth(7);
+		endTime.setDate(17);
+		endTime.setHours(0);
+		endTime.setMinutes(0);
+		endTime.setSeconds(0);
+		
+		var endTimer=endTime.getTime();
+		var iHour=document.querySelector('#hour')
+		var iMin=document.querySelector('#min')
+		var iSec=document.querySelector('#sec')
+		timer(endTimer);
+		var t=setInterval(function(){
+			timer(endTimer)
+		},1000);
+		function timer(endTimer){
+			var newTimer=new Date();
+			var sec=(endTimer-newTimer.getTime())/1000;
+			hours=Math.floor(sec/60/60);
+			min=Math.floor(sec%3600/60);
+			sec=Math.floor(sec%3600%60);
+		    iHour.innerHTML=zero(hours,2)
+	        iMin.innerHTML=zero(min,2)
+	        iSec.innerHTML=zero(sec,2)			
+			if(sec<0){
+				clearInterval(t);
+			}
+		}
+		function zero(time,n){
+			var str=''+time;
+			if(str.length<n){
+				str='0'+str;
+			}
+			console.log(str)
+			return str;
+		}
+	</script>
+</html>

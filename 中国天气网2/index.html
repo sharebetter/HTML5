@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>中国天气网</title>
+		<link rel="stylesheet" href="css/weather.css" />
+		<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="head">
+			<div class="head_content">
+				<div class="head_content_left">
+					<a href="#">首页</a>
+					<a href="#">预报</a>
+					<a href="#">云图</a>
+					<a href="#">雷达</a>
+					<a href="#">临近预报</a>
+					<a href="#">专业产品</a>
+					<a href="#">资讯</a>
+					<a href="#">生活</a>
+					<a href="#">滑雪</a>
+					<a href="#">产创平台</a>
+					<a href="#">福建站</a>
+					<a href="#">更多</a>
+
+				</div>
+				<div class="head_content_right">
+					<a href="#">厦门</a>
+					<a href><div class="head_content_right_img1"></div></a>
+					<div class="head_content_right_img2"></div>
+					<div class="head_content_right_deg"><a>18°C/14°C</a></div>
+					<div class="head_content_right_deg2"><a>+</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="top">
+			<div class="top_logo">
+				<a href="#"></a>
+			</div>
+			<div class="top_logo_bor">
+				预报
+			</div>
+			<input type="text" class="top_right" value=" 输入城市名查询天气"></input>
+				<div class="top_right_search"></div>
+		</div>
+      <main>
+	   <p>厦门 > 城区</p>
+		    <div class="wrap today" onmousedown="action(1)"><a>今天</a></div>
+		    <div class="wrap fiveday"  onmousedown="action(2)">5天</div>
+		    <div class="wrap moretime"  onmousedown="action(3)">更长时间</div>
+		    <div class="wrap data"  onmousedown="action(4)">天气日历</div>
+		    <div class="wrap leida"  onmousedown="action(5)">雷达</div>     
+		     <img src="img/1.jpg" id="img"/>
+		    <div style="display:none;" id="mystyle">
+			   <div class="weather weather1" onmousedown="play(1)">
+			   	  <div class="weather_box_top">12日 星期四</div>
+			   	  <div class="weather_img_box img_box1"></div>
+			   	  <div class="weather_box box_top">晴</div>
+			   	  <div class="weather_box box_center">25/16°C</div>
+			   	  <div class="weather_box box_buttom">微风</div>
+			
+			   </div>
+		       <div class="weather weather2" onmousedown="play(2)">
+		       	  <div class="weather_box_top">13日 星期五</div>
+			   	  <div class="weather_img_box img_box2"></div>
+			   	  <div class="weather_box box_top">小雨</div>
+			   	  <div class="weather_box box_center">18/12°C</div>
+			   	  <div class="weather_box box_buttom">南风</div>
+		       </div>
+			   <div class="weather weather3" onmousedown="play(3)">
+			   	  <div class="weather_box_top">14日 星期六</div>
+			   	  <div class="weather_img_box img_box3"></div>
+			   	  <div class="weather_box box_top">大雨</div>
+			   	  <div class="weather_box box_center">12/7°C</div>
+			   	  <div class="weather_box box_buttom">北风</div>
+			   </div>
+		       <div class="weather weather4" onmousedown="play(4)">
+		       	  <div class="weather_box_top">15日 星期日</div>
+			   	  <div class="weather_img_box img_box4"></div>
+			   	  <div class="weather_box box_top">阴</div>
+			   	  <div class="weather_box box_center">8/2°C</div>
+			   	  <div class="weather_box box_buttom">无持续风向</div>
+		       </div>
+		       <div class="weather weather5" onmousedown="play(5)">
+		       	  <div class="weather_box_top">16日 星期一</div>
+			   	  <div class="weather_img_box img_box5"></div>
+			   	  <div class="weather_box box_top">大雪</div>
+			   	  <div class="weather_box box_center">-2/-10°C</div>
+			   	  <div class="weather_box box_buttom">东南风</div>
+		       </div>
+		       <div class="data_bottom" id="wekday">星期四</div>
+			   	  <img class="img_botton" id="bottomimg" src="img/qing.png"></div>
+			   	  <div style="display:none;" id="mystyle2">
+			   	  <div class="deg_bottom" id="deg">25/16°C</div>
+			   	   <div class="deg_bottom2" id="weath">晴</div></div>
+		    </div>
+		      
+      </main>
+      <script src="js/weather.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
+		

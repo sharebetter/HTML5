@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>3D书页</title>
+		<style>
+			body {
+				background-color: #333333;
+				
+			}
+			main{
+				transform-style: preserve-3d;
+				transform: rotateX(20deg);
+			}
+			div {
+				height: 300px;
+				width: 200px;
+				position: absolute;
+				left: 500px;
+				top: 100px;
+				text-align: right;
+				transition: 3s;
+			}
+			
+			.first {
+				background-color: red;
+				z-index: 5;
+				transform: rotateY(-50deg);
+				transform-origin: left;
+			}
+			
+			.second {
+				background-color: orange;
+				z-index: 4;
+				transform: rotateY(-40deg);
+				transform-origin: left;
+			}
+			
+			.third {
+				background-color: yellow;
+				z-index: 3;
+				transform: rotateY(-30deg);
+				transform-origin: left;
+			}
+			
+			.fourth {
+				background-color: green;
+				z-index: 2;
+				transform: rotateY(-20deg);
+				transform-origin: left;
+			}
+			
+			.fifth {
+				background-color: aqua;
+				transform-origin: left;
+				z-index: 1;
+			}
+			/*main:hover .first{
+				transform: rotateY(-150deg);
+				transition: 3s;
+			}*/
+		</style>
+	</head>
+
+	<body>
+		<main>
+			<div class="first" onclick="turn(0)" data-turn="0">第一页</div>
+			<div class="second" onclick="turn(1)" data-turn="0">第二页</div>
+			<div class="third" onclick="turn(2)" data-turn="0">第三页</div>
+			<div class="fourth" onclick="turn(3)" data-turn="0">第四页</div>
+			<div class="fifth" onclick="turn(4)" data-turn="0">第五页</div>
+		</main>
+		
+		<script src="3dbook.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

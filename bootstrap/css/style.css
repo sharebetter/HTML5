@@ -1,0 +1,162 @@
+@charset "utf-8";
+body{
+    font-family:"Microsoft yahei";
+    color:#5a5a5a;
+}
+h1,h2,h3,h4,h5,h6{
+    text-transform:uppercase;
+}
+a,a:hover,a:focus{
+    text-decoration:none;
+}
+/*navbar page style start*/
+#tf-menu{
+    padding:20px;
+    transition:all 0.5s;
+}
+#tf-menu a.navbar-brand{
+    text-transform:uppercase;
+    font-size:20px;
+    font-weight:900;
+    color:#fff;
+}
+#tf-menu.navbar-default{
+    background-color:rgba(248,248,248,0);
+    border-color:rgba(231,231,231,0);
+}
+#tf-menu.navbar-default .navbar-nav > li > a{
+    text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:1px;
+    color:#fff;
+}
+.navbar-toggle{
+    border-radius:0;
+}
+.navbar-default .navbar-toggle:hover,.navbar-default .navbar-toggle:focus{
+    background-color:#FCAC45;
+    border-color:#FCAC45;
+}
+.navbar-default .navbar-toggle:hover > .icon-bar,.navbar-default .navbar-toggle:focus > .icon-bar{
+    background-color:#fff;
+}
+.on{
+    background-color:#222 !important;
+    color:#fff;
+    padding:0 !important;
+}
+/*end style navbar page*/
+
+#tf-home{
+    background-image:url(../images/bg-01.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    background-attachment:fixed;
+    color:#cfcfcf;
+}
+#tf-home .overlay{
+    background: -moz-linear-gradient(top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#66000000',GradientType=0 );
+    height:750px;
+}
+.content{
+    padding:20% 0 0;
+}
+.colors{
+    color:#FCAC45;
+}
+#tf-home p.lead{
+    color:#e3e3e3;
+}
+a.fa-angle-down{
+	font-size: 24px;
+	color: #fff;
+	border: 2px solid #b4b4b4;
+	padding:10px 15px;
+	border-radius: 50%;
+	margin-top: 200px;
+	transition: all 0.5s;
+}
+a.fa-angle-down:hover{
+	background-color: #fcac45;
+	border-color:#FCAC45 ;
+}
+/*About page style start*/
+#tf-about{
+	padding: 80px 0;
+}
+.section-title h4{
+	font-weight: 300;
+}
+.section-title h2{
+	font-weight: 200;
+	line-height: 10px;
+	font-size: 28px;
+	margin: 0;
+}
+.section-title hr{
+	border-color: #fcac45;
+	border-width: 4px;
+	width: 60px;
+	float: left;
+}
+p.intro{
+	font-size: 16px;
+	margin: 15px 0 0;
+	line-height: 24px;
+}
+.about-list{
+	margin-top: 30px;
+}
+.about-list li{
+	line-height: 30px;
+	font-size: 16px;
+}
+.section-title.center .line{
+	height: 10px;
+	width: 60px;
+	text-align: center;
+	margin: 0 auto;
+	margin-top:20px ;
+	margin-bottom: 30px;
+}
+.section-title.center hr{
+	border-top:4px solid rgba(252,172,69,0.3);
+	width: 40px;
+	margin-top: 10px;
+	position: relative;
+	left: 20%;
+}
+#tf-services i.fa{
+	font-size: 40px;
+	border: 4px solid #FCAC45;
+	width: 100px;
+	height: 100px;
+	padding: 25px;
+	border-radius: 50%;
+	margin-bottom: 10px;
+	transition: all 0.5s;
+}
+#tf-services i.fa-mobile{
+	font-size: 50px;
+	padding: 20px 25px;
+}
+.marTop{
+	margin-top:60px ;
+}
+#tf-services .services:hover>i.fa{
+	background: #FCAC45;
+	color: #fff;
+}
+.navbar-default .navbar-nav > .active> a,
+.navbar-default .navbar-nav > .active> a:hover,
+.navbar-default .navbar-nav > .active> a:focus{
+	color: #fcac45 !important;
+	background-color: transparent;
+}

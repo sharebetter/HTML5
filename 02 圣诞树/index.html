@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>圣诞节</title>
+		<style type="text/css">
+			html,
+			body {
+				margin: 0;
+				width: 100%;
+				height: 100%;
+			}
+			
+			body {
+				background: url(img/Christmas.jpg);
+				background-size: 100% 100%;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+
+	<body>
+		<script>
+			var h = document.documentElement.clientHeight;
+			var w = document.documentElement.clientWidth;
+
+			function Snow() {
+				var snow = document.createElement("div");
+				var shadow = Math.random() * 5 + 3;
+				var top = Math.random() * h;
+				
+				snow.style.height = '2px';
+				snow.style.width = '2px';
+				snow.style.backgroundColor = "white";
+				snow.style.borderRadius = "50%";
+				snow.style.boxShadow = "0 0 " + shadow +"px " + shadow +"px white";
+				snow.style.position = "absolute";
+				snow.style.left = Math.random() * w + "px";
+				snow.style.top = top + "px";
+				
+				document.body.appendChild(snow);
+				
+				function down() {
+					top = top + Math.random() * 4;
+					if(top > h) {
+						top = 0;
+					}
+					snow.style.top = top + "px";
+
+				}
+
+				setInterval(down, Math.random() * 30 + 60)
+
+			}
+
+			for(var i = 0; i < 200; i++) {
+				Snow();
+			}
+		</script>
+	</body>
+
+</html>

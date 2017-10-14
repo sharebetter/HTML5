@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>打飞机</title>
+	</head>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			body{
+				background: #000000;
+				overflow: hidden;
+			}
+			#box{
+				width: 300px;
+				height: 500px;
+				background: #000000;
+				border: 10px solid white;
+				margin: 50px auto;
+				position: relative;
+			}
+			#box ul{
+				width:150px;
+				list-style: none;
+				text-align: center;
+				position: relative;
+				margin: 0 auto;
+			}
+			#box ul li,.replay{
+				width: 150px;
+				height: 30px;
+				margin: 60px auto;
+				text-align: center;
+				color: #000000;
+				background: #FFFFFF;
+				cursor: pointer;
+				line-height: 30px;
+			}
+			#box h1{
+				color: white;
+				text-align: center;
+				margin-top: 50px;
+			}
+			#box ul li.dec{
+				color: deeppink;
+				background:lightpink;
+			}
+			#box ul li:hover{
+			   background: pink;
+			   color: #fff;
+			}
+			#box .myplane,#box .biu,#box .enemy,#box .boom,#box .boom2{
+				position: absolute;				
+			}		
+			#box .over{
+				margin:70px 0;
+			}
+			#box .score{
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				color: #fff;
+			}
+		</style>
+	<body>
+		<div id="box"></div>
+		<audio autoplay="autoplay" src="music.mp3"></audio>
+		
+		<script>
+ 
+            var oBox = document.getElementById('box');
+            var oDiv = document.createElement('ul');
+            var arr = ['简单模式','一般模式','困难模式','明哥附体'];
+            var h1 = document.createElement('h1');
+            var speed=300,score=0;
+            h1.innerText='打飞机游戏1.0';            
+            oBox.appendChild(h1);
+            game();
+            function game(){
+	            for(var i=0;i<arr.length;i++){
+	            	var oLi = document.createElement('li');
+	            	oLi.innerHTML=arr[i]; 
+	            	if(i==3){
+	            		oLi.className='dec';
+	            	}
+	            	(function(i){oLi.onclick=function(e){//函数自执行
+	            		oBox.innerHTML='';
+			        	var where = {
+		                   	left:e.clientX,
+		                   	top:e.clientY,
+	                   }
+			        	myplane(i,where,e);
+			        	enemy(i);
+	            	}})(i)
+	            	 oDiv.appendChild(oLi);
+	            	 
+	            } 
+	        }
+            oBox.appendChild(oDiv);
+            function myplane(index,client,e){
+            	switch(index){
+            		case 0:
+            		  speed=200;
+            		  break;
+            		case 1:  
+            		  speed=400;
+            		  break;
+            		case 2:
+            		  speed=550;
+            		  break;
+            		case 3:
+            		  speed=50;
+            		  break;
+            	}
+            	var score=0;
+            	var h3 = document.createElement('h3');
+            	h3.className='score';
+            	h3.innerHTML = score;
+            	oBox.appendChild(h3);
+            	var oImg = new Image();
+				oImg.src='img/plane.png';
+				oImg.className='myplane';          
+                var disX = client.left - oBox.offsetLeft - oImg.width/2 - 10;
+                var disY = client.top - oBox.offsetTop - oImg.height/2 - 10;
+//              console.log(disX,disY)
+                oImg.style.left = disX + 'px';
+                oImg.style.top = disY + 'px'; 
+                oBox.onmousemove=function(e){ 
+	                if(e.clientX<=oBox.offsetLeft+oBox.clientWidth+10 &&e.clientX>oBox.offsetLeft+10){
+	                	oImg.style.left = e.clientX- oBox.offsetLeft - oImg.width/2 - 10 + 'px';    
+	                }
+	                if(e.clientY<=oBox.offsetTop+oBox.clientHeight+10 &&e.clientY>oBox.offsetTop+10){
+	                	oImg.style.top = e.clientY- oBox.offsetTop - oImg.height/2 - 10 + 'px';
+                   }
+	                
+	                
+                }
+                oBox.appendChild(oImg);
+                oBox.style.cursor='none';
+                oBox.oBiu=setInterval(function(){
+			        var oImg2 = new Image();
+			        oImg2.src = 'img/bullet.png';
+			        oImg2.className = 'biu';
+			        oImg2.style.top = oImg.offsetTop - oImg2.height/2 +'px';
+			        oImg2.style.left = oImg.offsetLeft + oImg.width/2 - oImg2.width/2 +'px' ;
+			        oBox.appendChild(oImg2);
+			    },speed)                  
+                
+                oBox.oBiuDown = setInterval(function(){
+                	var allBiu = document.querySelectorAll('#box .biu');
+//              	console.log(allBiu.length)
+                    for(var i=allBiu.length-1;i>=0;i--){
+                    	 allBiu[i].style.top= allBiu[i].offsetTop-3+'px';
+                    	 if(allBiu[i].offsetTop<=-allBiu[i].height/2){
+                    	 	oBox.removeChild(allBiu[i]);
+                    	 }
+                    }                    
+                },20);
+              return myplane;              
+            }
+            function enemy(index){
+            	switch(index){
+            		case 0:
+            		  spd = 1000;
+            		  break;
+            		case 1:
+            		  spd = 750;
+            		  break;
+            		case 2:
+            		  spd = 550;
+            		  break;
+            		case 3:
+            		  spd = 100;
+            		  break;
+            	}
+            	oBox.enemy = setInterval(function(){
+            		var oImg3 =new Image();
+            		oImg3.className = 'enemy';            		           		
+            		oImg3.src = 'img/enemy.png';
+            		oImg3.speed = Math.random()*2+1;
+            		var oleft = Math.random()*(oBox.clientWidth - oImg3.width);
+            		oImg3.style.top = -oImg3.height +'px';
+            		oImg3.style.left = oleft +'px';
+            		oBox.appendChild(oImg3);                   
+            	},spd)   
+            	
+            	oBox.boom = setInterval(function(){
+            		var aEnemy = document.querySelectorAll('.enemy');
+            		var aBiu = document.querySelectorAll('#box .biu');
+            		var h3 = document.querySelector('.score');            		
+            		for(var i= aEnemy.length-1;i>=0;i--){             		
+            			aEnemy[i].style.top=aEnemy[i].offsetTop+aEnemy[i].speed+'px';
+            			for(var j=aBiu.length-1;j>=0;j--){
+            				if(clearEnemy(aEnemy[i],aBiu[j])){	
+	            				var oBoom = new Image();
+	            				score+=10;
+	            				h3.innerHTML=score;
+	            				oBoom.src = 'img/boom.png';
+	            				oBoom.className = 'boom';	            				
+	            				oBoom.style.left=aEnemy[i].offsetLeft+'px';
+	            				oBoom.style.top = aEnemy[i].offsetTop+'px';
+	            				aEnemy[i].parentNode?oBox.removeChild(aEnemy[i]):'';
+            					aBiu[j].parentNode?oBox.removeChild(aBiu[j]):'';
+            					oBox.appendChild(oBoom);
+            					(function(obj){
+									setTimeout(function(){
+										obj.parentNode?oBox.removeChild(obj):''
+									},500)
+								})(oBoom)								
+            				}
+            			}
+            			var oPlane=document.querySelector('.myplane');
+            		    if(oPlane){
+	            			if(clearEnemy(aEnemy[i],oPlane)){
+	//          				console.log('gg');
+	                            clearInterval(oBox.oBiu);
+	                            clearInterval(oBox.enemy);
+	                            var die =  new Image();
+	                            die.src = 'img/boom2.png';
+	                            die.className='boom2';
+	                            die.style.top=oPlane.offsetTop+'px';
+	                            die.style.left = oPlane.offsetLeft+'px';
+	                            oBox.removeChild(oPlane);
+	                            (function(obj){
+		                            setTimeout(function(){
+		                            	var oBoom = new Image();
+			                            oBox.appendChild(die);
+			                            oBoom.src = 'img/boom.png';
+			            				oBoom.className = 'boom';	            				
+			            				oBoom.style.left=obj.offsetLeft+'px';
+			            				oBoom.style.top = obj.offsetTop+'px';
+			            				oBox.appendChild(oBoom);
+			            				setTimeout(function(){
+			            					oBox.removeChild(oBoom);
+			            				},200)
+			                            obj.parentNode?oBox.removeChild(obj):'';
+			                            setTimeout(function(){
+			                            	clearInterval(oBox.boom);
+                                            var h1 = document.createElement('h1'); 
+                                            var aScore = document.createElement('h1');
+			                            	oBox.innerHTML='';
+			                            	h1.innerText='Game Over';
+			                            	h1.className='over';
+			                            	aScore.className='over';
+			                            	aScore.innerHTML='得分：'+score;
+			                            	oBox.appendChild(h1);
+			                            	oBox.appendChild(aScore);
+			                            	var rePlay = document.createElement('div');
+			                            	rePlay.className = 'replay';
+			                            	rePlay.innerHTML='RePlay';
+			                            	oBox.appendChild(rePlay);
+			                            	oBox.style.cursor='pointer';
+			                            	rePlay.onclick=function(){
+			                            		document.location.reload();
+			                            	}
+			                            },1000);
+		                            },200)}
+	                            )(aEnemy[i]);
+            			    }
+	            		}
+                       
+//          			console.log(aEnemy[i].speed);
+                        if(aEnemy[i].offsetTop>=oBox.clientHeight){
+                        	oBox.removeChild(aEnemy[i]);                        	
+                        }
+            		}
+            	},20)
+            	
+            	function clearEnemy(objA,objB){
+            		aR=objA.offsetLeft+objA.offsetWidth;
+            		aB=objA.offsetTop+objA.offsetHeight;
+            		aL=objA.offsetLeft;
+            		
+            		bR=objB.offsetLeft+objB.offsetWidth;
+            		bT=objB.offsetTop;
+            		bL=objB.offsetLeft;
+            		
+            		if(aB<bT||aR<bL||aL>bR){
+            			return false;
+            		}else{
+            			return true;
+            		}
+            	}
+            }
+
+		</script>
+	</body>
+</html>

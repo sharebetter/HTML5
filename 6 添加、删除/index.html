@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>添加、删除</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.wrap{
+				width: 100vw;
+				height: 100vh;
+				background: linear-gradient(#9DBCCF,#E7AC94);
+				overflow: hidden;
+			}
+			.left{
+				position: absolute;
+				width: 40%;
+				height: 85%;
+				background: white;
+			    top: 40px;
+			    left: 137px;				
+			}
+			.left-top{
+				height: 60px;
+				width: 100%;
+				text-indent: 15px;
+				line-height: 35px;
+			}
+			.left-add{
+				margin-left: 40px;
+				margin-top: -10px;
+				height: 100px;
+				width: 90%;
+			}
+			.left-add li{
+				cursor: pointer;
+				/*width: 100px;*/
+				padding:0 5px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border: 1px solid black;
+				display: inline-block;
+				margin-right: 20px;
+			}
+			.right-add li{
+				cursor: pointer;
+				color: white;
+				font-weight: bold;
+				padding:0 5px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				border: 1px solid white;
+				display: inline-block;
+				margin-right: 20px;
+			}
+			.left span{
+				cursor: pointer;
+				margin: 7px;
+			}
+			.right{
+				position: absolute;
+				width: 40%;
+				height: 85%;
+				background: black;
+				opacity: .2;
+			    top: 40px;
+			    right:137px;
+			}
+			.right-add{
+				height: 100px;
+				width: 90%;
+                margin-left: 40px;
+				margin-top: 50px;
+			}
+			.red{
+				color: red;
+			}
+			 h3{
+			 	display: inline-block;
+				color: #F6B975;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap"onselectstart="return false">
+			<div class="left">
+				<div class="left-top">
+					<h3>热门目的地:</h3>
+					<span>马来西亚</span>
+					<span>泰国</span>
+					<span>三亚</span>
+					<span>新西兰</span>
+					<span>云南</span>	
+				</div>
+				<ul class="left-add"></ul>
+			</div>
+			<div class="right">
+				<ul class="right-add"></ul>
+			</div>			
+		</div>
+		
+		<script>
+			var oSpan = document.querySelectorAll('.left-top span');
+			var leftAdd = document.querySelector('.left-add');
+			var rightAdd = document.querySelector('.right-add');
+			var arr=[];
+              for(var i=0;i<oSpan.length;i++){
+              	oSpan[i].i=i;
+              	oSpan[i].flag = true;
+              	oSpan[i].onclick=function(){
+              		if(oSpan[this.i].flag){   //判断用于避免重复添加
+              			oSpan[this.i].className='red';
+	                    var li1=document.createElement('li');	                   
+	                    li1.innerHTML=oSpan[this.i].innerHTML+'| x ';
+	                    leftAdd.appendChild(li1);
+	                    var li2=document.createElement('li');	                   
+	                    li2.innerHTML=oSpan[this.i].innerHTML;
+	                    rightAdd.appendChild(li2);
+	                    oSpan[this.i].flag=false;
+	                    arr.push(this.i);
+//	                    console.log(arr)
+                    }
+              		leftAdd.onmousemove=function(){
+              			var leftDele = document.querySelectorAll('.left-add li');
+	              		var rightDele = document.querySelectorAll('.right-add li');
+	              		for(var j = 0;j<leftDele.length;j++){
+	              			leftDele[j].j=j;
+	              			leftDele[j].onclick=function(){
+	              				var a=arr[this.j];   //确定还原falg=true的对应数组下标                          
+//	              				console.log(arr,this.j,a);
+	              				oSpan[a].className='';
+	              				oSpan[a].flag=true;
+	              				arr.splice(this.j,1); 
+	              				leftAdd.removeChild(leftDele[this.j]);
+	              				rightAdd.removeChild(rightDele[this.j]);
+		              		}
+	              		}
+              		}
+              	}              		              	 	
+            }
+		</script>
+	</body>
+</html>

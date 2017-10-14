@@ -1,0 +1,15 @@
+div{
+	width: 500px;
+	height: 500px;
+	margin: -100px auto;
+	font-size: 300px;
+	font-weight: bold;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 50%;
+	/*设置文本的行高，有让字体居中的效果*/
+	line-height: 500px;
+}
+.red{
+	color: red;
+}

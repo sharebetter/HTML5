@@ -1,0 +1,109 @@
+*{
+	margin: 0;
+	padding: 0;
+	/*overflow: hidden;*/
+}
+.top{
+	margin: 0 auto;
+	width: 900px;
+}
+.banner{
+	width: 100%;
+	height: 160px;
+	background: url(../img/banner.jpg);
+}
+.shop{
+	margin: 30px auto;
+	width: 900px;
+}
+.shop h1{
+	color: #900;
+	font-size: 26px; 
+}
+.shop ul li{
+	list-style: none;
+	float: left;
+	margin: 0 15px 0 0;
+	padding:15px;
+	border: 1px solid #e1e1e1;
+}
+.shop ul li:hover{
+	border: 1px solid red;
+}
+.shop ul li .price{
+	font-size: 20px;
+	color: #c00;
+	font-family: "微软雅黑";
+}
+.shop ul li .add{
+	width: 200px;
+	height: 35px;
+	display:block;
+	background: red;
+	text-align: center;
+	text-decoration: none;
+	line-height: 35px;
+	color: #FFFF99;
+	font-weight: bold;
+	border-radius: 2px;
+	margin-top: 5px;
+}
+.cart{
+	background: #ebebeb;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 220px;
+	height: 100%;
+}
+.cart .c_tool{
+	background: #000;
+	width: 35px;
+	height: 100%;
+	float: left;
+}
+.cart .c_tool p{
+	width: 35px;
+	height: 100px;
+	margin-top: 300px;
+	cursor: pointer;
+}
+.cart .c_tool p .icon{
+	width: 35px;
+	height: 35px;
+	display: block;
+	background: url(../img/car.png);
+}
+.cart .c_tool p .c_cart{
+	width:15px ;
+	display: block;
+	margin: auto;
+	color: #fff;
+	margin-bottom: 10px;
+	list-style: none;
+	/*float: left;*/
+}
+.cart .c_box .c_count{
+	width: 185px;
+	height: 40px;
+	background: red;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	line-height: 40px;
+	font-weight: bold;
+	color: #fff;
+}
+.cart .c_box .c_span{
+	font-family: "微软雅黑";
+	font-size: 18px;
+	color: red;
+}
+.fly{
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}

@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8" />
+<title>用原生JS实现jQuery导航效果 - 妙味课堂 - www.miaov.com</title>
+<style> 
+body { margin:0; background:#66FF99; }
+ul { padding-left:0; margin:0; }
+li { list-style:none; }
+#nav { height:40px; background:#900; margin-top:50px; }
+#nav ul { width:800px; height:40px; margin:0 auto; }
+#nav li { float:left; height:40px; }
+#nav a { float:left; position:relative; height:40px; overflow:hidden; font-size:14px; color:#e0e03a; text-decoration:none; cursor:pointer; }
+#nav strong { float:left; }
+#nav span { float:left; padding:0 20px; height:40px; line-height:40px; background:#900; clear:both; }
+#nav .active,#nav .current span { background:#600; color:#fff; }
+#nav .current .active { color:#e0e03a; }
+</style>
+<script> 
+window.onload=function()
+{
+	var oDiv=document.getElementById('nav');
+	var aStrong=oDiv.getElementsByTagName('strong');
+	var aA=oDiv.getElementsByTagName('a');
+	var iTarget=oDiv.getElementsByTagName('li')[0].offsetHeight;
+ 
+	for(var i=0; i<aStrong.length; i++)
+	{
+		aA[i].style.width=aStrong[i].style.width=aStrong[i].getElementsByTagName('span')[0].offsetWidth+'px';
+		aStrong[i].style.position='absolute';
+		aStrong[i].style.top=aStrong[i].style.left=0;
+		
+		aStrong[i].onmouseover=function()
+		{
+			startMove(this, -iTarget);
+		};
+		aStrong[i].onmouseout=function()
+		{
+			startMove(this, 0);
+		};
+	}
+};
+ 
+function startMove(obj,target)
+{
+	clearInterval(obj.iTime);
+	obj.iTime=setInterval(function(){
+		if(obj.offsetTop==target)
+		{
+			clearInterval(obj.iTime);
+		}
+		else
+		{		
+			var iSpeed=(target-obj.offsetTop)/4;
+			iSpeed=iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+			obj.style.top=obj.offsetTop+iSpeed+'px';
+		}
+	}, 30);
+}
+</script>
+</head>
+ 
+<body>
+ 
+<div id="nav">
+	<ul>
+		<li class="current">
+			<a href="http://www.miaov.com">
+				<strong>
+					<span>首页</span>
+					<span class="active">首页</span>
+				</strong>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.miaov.com/course.html.php">
+				<strong>
+					<span>前端开发课程</span>
+					<span class="active">前端开发课程</span>
+				</strong>
+			</a>
+		</li>
+		<li>
+			<a href="http://bbs.miaov.com/viewthread.php?tid=952&extra=page%3D1">
+				<strong>
+					<span>关于</span>
+					<span class="active">关于</span>
+				</strong>
+			</a>
+		</li>
+		<li>
+			<a href="http://bbs.miaov.com/viewthread.php?tid=994&extra=page%3D1">
+				<strong>
+					<span>周末班上课安排</span>
+					<span class="active">周末班上课安排</span>
+				</strong>
+			</a>
+		</li>
+		<li>
+			<a href="http://bbs.miaov.com/viewthread.php?tid=775&extra=page%3D1">
+				<strong>
+					<span>结课标准</span>
+					<span class="active">结课标准</span>
+				</strong>
+			</a>
+		</li>
+		<li>
+			<a href="http://www.miaov.com/contact.html.php">
+				<strong>
+					<span>联系妙味</span>
+					<span class="active">联系妙味</span>
+				</strong>
+			</a>
+		</li>
+	</ul>
+</div>
+ 
+</body>
+</html>
+
